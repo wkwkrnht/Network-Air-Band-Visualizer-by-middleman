@@ -2,15 +2,6 @@ ruby:
     tableAreaSize = 0
     freq = 0
     unitOfRuler = 1000
-    3GPPcsv =
-    jpCsv = CSV.parse('#{root}/data/JPBandPlan.csv')
-    ismCsv = CSV.parse('#{root}/data/ISMBandPlan.csv')
-    etsiCsv = CSV.parse('#{root}/data/ETSIBandPlan.csv')
-    wifiCsv = CSV.parse('#{root}/data/Wi-FiBandPlan.csv')
-
-    def serach_columun_num( arr = [], key = '' )
-        return arr[0].index(key)
-    end
 
     def update_max( up = 0 )
         tableAreaSize = up if up > tableAreaSize
@@ -20,7 +11,7 @@ header
     h1 Network Air Band Visualizer
     p &copy;2023 wkwkrnht
 main#main
-    - CSV.parse('#{root}/data/3GPPBandPlan.csv', :headers true).each do |row|
+    - CSV.read('#{root}/data/3GPPBandPlan.csv', :headers true).each do |row|
         - if row['Mode'] == 'FDD' || row['Mode'] = 'SUL'
             - update_max(row['ULup'])
             div class='box 3GPP' data-down=row['ULdown'] data-width=''
@@ -29,6 +20,18 @@ main#main
             - update_max(row['DLup'])
             div class='box 3GPP' data-down=row['DLdown'] data-width=''
                 | #{row['Name']} ↓
+    - CSV.read('#{root}/data/ISMBandPlan.csv', :headers true).each do |row|
+        - update_max(row['Up'])
+        div class='box ISM' data-down=row['Down'] data-width=''
+            | #{row['Name']}
+    - CSV.read('#{root}/data/ETSIBandPlan.csv', :headers true).each do |row|
+        - update_max(row['Up'])
+        div class='box ETSI' data-down=row['Down'] data-width=''
+            | #{row['Name']}
+    - CSV.read('#{root}/data/Wi-FiBandPlan.csv', :headers true).each do |row|
+        - update_max(row['Up'])
+        div class='box WiFi' data-down=row['Down'] data-width=''
+            | #{row['Name']}
     - until freq < tableAreaSize do
         - freq = freq * unitOfRuler
         div.ruler style="height:50px;left:#{freq}px;top:20vh;width:#{unitOfRuler}px;"
