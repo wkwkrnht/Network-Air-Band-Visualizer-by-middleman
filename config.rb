@@ -12,7 +12,6 @@ Slim::Engine.set_options shortcut: {
 }
 
 
-activate :livereload
 # Layouts
 # https://middlemanapp.com/basics/layouts/
 
