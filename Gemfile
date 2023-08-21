@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'middleman'
+gem 'middleman-autoprefixer'
+gem 'middleman-blog'
+gem 'middleman-livereload'
 
 gem 'webrick'
 gem 'slim'
