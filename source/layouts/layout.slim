@@ -1,8 +1,21 @@
 doctype html
 html
     head
-        = partial 'layouts/meta'
+        // Set dynamic and default meta
+        - title = 'Network Air Band Visualizer'
+        - description = 'This site visuallize air bands defined by GOV or ORG.'
+
+        title =title
+        meta charset='utf-8'
+        meta name='viewport' content='width=device-width'
+        meta name='description' content=description
+
+        meta property='og:title' content=title
+        meta property='og:description' content=description
+        meta property='og:url' content='https://bandplanvisualize.netlify.app'
+        meta property='og:type' content='website'
+
         = stylesheet_link_tag 'all'
-        = javascript_include_tag 'main', async: true
+        /= javascript_include_tag 'main', async: true
     body
         = yield

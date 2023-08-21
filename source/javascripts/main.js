@@ -308,7 +308,7 @@ async function main(){ // Main function.
 
     await createBandTable();
 
-    await createRuler();
+    //await createRuler();
 
     parent.appendChild(reservedDOM);
 
