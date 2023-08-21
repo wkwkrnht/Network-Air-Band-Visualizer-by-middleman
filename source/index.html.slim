@@ -11,7 +11,7 @@ header
     h1 Network Air Band Visualizer
     p &copy;2023 wkwkrnht
 main#main
-    - CSV.read('#{root}/data/3GPPBandPlan.csv', headers: true).each do |row|
+    - CSV.read('./data/3GPPBandPlan.csv', headers: true).each do |row|
         - if row['Mode'] == 'FDD' || row['Mode'] = 'SUL'
             - update_max(row['ULup'])
             div class='box 3GPP' data-down=row['ULdown'] data-width=''
@@ -20,15 +20,15 @@ main#main
             - update_max(row['DLup'])
             div class='box 3GPP' data-down=row['DLdown'] data-width=''
                 | #{row['Name']} ↓
-    - CSV.read('#{root}/data/ISMBandPlan.csv', headers: true).each do |row|
+    - CSV.read('./data/ISMBandPlan.csv', headers: true).each do |row|
         - update_max(row['Up'])
         div class='box ISM' data-down=row['Down'] data-width=''
             | #{row['Name']}
-    - CSV.read('#{root}/data/ETSIBandPlan.csv', headers: true).each do |row|
+    - CSV.read('./data/ETSIBandPlan.csv', headers: true).each do |row|
         - update_max(row['Up'])
         div class='box ETSI' data-down=row['Down'] data-width=''
             | #{row['Name']}
-    - CSV.read('#{root}/data/Wi-FiBandPlan.csv', headers: true).each do |row|
+    - CSV.read('./data/Wi-FiBandPlan.csv', headers: true).each do |row|
         - update_max(row['Up'])
         div class='box WiFi' data-down=row['Down'] data-width=''
             | #{row['Name']}

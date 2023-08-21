@@ -35,36 +35,35 @@ page "/admin/*", layout: false
 activate :directory_indexes
 
 helpers do
-  #helper to set background images with asset hashes in a style attribute
-  def background_image(image)
-    "background-image: url('" << image_path(image) << "')"
-  end
+    #helper to set background images with asset hashes in a style attribute
+    def background_image(image)
+        "background-image: url('" << image_path(image) << "')"
+    end
 
-  def nav_link(link_text, url, options = {})
-    options[:class] ||= ""
-    options[:class] << " active" if url == current_page.url
-    link_to(link_text, url, options)
-  end
+    def nav_link(link_text, url, options = {})
+        options[:class] ||= ""
+        options[:class] << " active" if url == current_page.url
+        link_to(link_text, url, options)
+    end
 
-  def markdown(content)
-     Tilt['markdown'].new(context: @app) { content }.render
-  end
+    def markdown(content)
+        Tilt['markdown'].new(context: @app) { content }.render
+    end
 end
 
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
 
 configure :build do
-  # Minify css on build
-  activate :minify_css
+    # Minify css on build
+    activate :minify_css
 
-  # Minify Javascript on build
-  activate :minify_javascript, compressor: ::Uglifier.new(mangle: true, compress: { drop_console: true }, output: {comments: :none})
+    # Minify Javascript on build
+    activate :minify_javascript, compressor: ::Uglifier.new(mangle: true, compress: { drop_console: true }, output: {comments: :none})
 
-  # Use Gzip
-  activate :gzip
+    # Use Gzip
+    activate :gzip
 
-  #Use asset hashes to use for caching
-  #activate :asset_hash
-
+    #Use asset hashes to use for caching
+    #activate :asset_hash
 end
