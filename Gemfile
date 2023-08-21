@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'middleman'
+gem 'middleman', '4.5.0'
 
 gem 'webrick'
 gem 'slim'

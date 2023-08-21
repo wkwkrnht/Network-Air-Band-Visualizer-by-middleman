@@ -21,7 +21,6 @@ page '/*.json', layout: false
 page '/*.csv', layout: false
 page '/*.txt', layout: false
 page "/partials/*", layout: false
-page "/admin/*", layout: false
 
 # With alternative layout
 # page '/path/to/file.html', layout: 'other_layout'
@@ -35,23 +34,6 @@ activate :directory_indexes
 
 helpers do
     #helper to set background images with asset hashes in a style attribute
-    def background_image(image)
-        "background-image: url('" << image_path(image) << "')"
-    end
-
-    def nav_link(link_text, url, options = {})
-        options[:class] ||= ""
-        options[:class] << " active" if url == current_page.url
-        link_to(link_text, url, options)
-    end
-
-    def markdown(content)
-        Tilt['markdown'].new(context: @app) { content }.render
-    end
-
-    def update_max( up = 0, tableAreaSize )
-        tableAreaSize = up if up > tableAreaSize
-    end
 end
 
 # Build-specific configuration
