@@ -49,6 +49,10 @@ helpers do
     def markdown(content)
         Tilt['markdown'].new(context: @app) { content }.render
     end
+
+    def update_max( up = 0, tableAreaSize )
+        tableAreaSize = up if up > tableAreaSize
+    end
 end
 
 # Build-specific configuration
