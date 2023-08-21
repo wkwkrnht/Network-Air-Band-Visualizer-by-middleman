@@ -1,4 +1,4 @@
-const
+/*const
 d = document,
 windowWidth = d.documentElement.clientWidth, // Constructor of the window width.
 windowHeight = d.documentElement.clientHeight, // Constructor of the window height.
@@ -155,7 +155,7 @@ async function createBandTable(){ // Create Boxes to each air bands from a datas
     data2 = await getCSV('/BandPlanVisualize/JPBandPlan.csv'), // Loading JP dataset.
     data3 = await getCSV('/BandPlanVisualize/ISMBandPlan.csv'), // Loading ISM dataset.
     data4 = await getCSV('/BandPlanVisualize/ETSIBandPlan.csv'), // Loading ETSI dataset.
-    data5 = await getCSV('/BandPlanVisualize/Wi-FiBandPlan.csv'); // Loading Wi-Fi dataset.*/
+    data5 = await getCSV('/BandPlanVisualize/Wi-FiBandPlan.csv'); // Loading Wi-Fi dataset.
 
     const
     data1 = await getCSV('/3GPPBandPlan.csv'), // Loading 3GPP dataset.
@@ -318,4 +318,4 @@ async function main(){ // Main function.
 }
 
 window.addEventListener('resize', detectDisplayDirection()); //
-window.addEventListener('load', main()); // Fire main() after loaded whole of the HTML document.
+window.addEventListener('load', main()); // Fire main() after loaded whole of the HTML document.*/

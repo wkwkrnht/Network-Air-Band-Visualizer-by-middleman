@@ -13,23 +13,23 @@ header
 main#main
     - CSV.read('./data/3GPPBandPlan.csv', headers: true).each do |row|
         - if row['Mode'] == 'FDD' || row['Mode'] = 'SUL'
-            - tableAreaSize = row['ULup'] if row['ULup'] > tableAreaSize
+            - tableAreaSize = row['ULup'].to_i if row['ULup'].to_i > tableAreaSize
             div class='box 3GPP' data-down=row['ULdown'] data-width=''
                 | #{row['Name']} ↑
         - if row['Mode'] == 'TDD' || row['Mode'] = 'SDL' || row['Mode'] = 'FDD'
-            - tableAreaSize = row['DLup'] if row['DLup'] > tableAreaSize
+            - tableAreaSize = row['DLup'].to_i if row['DLup'].to_i > tableAreaSize
             div class='box 3GPP' data-down=row['DLdown'] data-width=''
                 | #{row['Name']} ↓
     - CSV.read('./data/ISMBandPlan.csv', headers: true).each do |row|
-        - tableAreaSize = row['Up'] if row['Up'] > tableAreaSize
+        - tableAreaSize = row['Up'].to_i if row['Up'].to_i > tableAreaSize
         div class='box ISM' data-down=row['Down'] data-width=''
             | #{row['Name']}
     - CSV.read('./data/ETSIBandPlan.csv', headers: true).each do |row|
-        - tableAreaSize = row['Up'] if row['Up'] > tableAreaSize
+        - tableAreaSize = row['Up'].to_i if row['Up'].to_i > tableAreaSize
         div class='box ETSI' data-down=row['Down'] data-width=''
             | #{row['Name']}
     - CSV.read('./data/Wi-FiBandPlan.csv', headers: true).each do |row|
-        - tableAreaSize = row['Up'] if row['Up'] > tableAreaSize
+        - tableAreaSize = row['Up'].to_i if row['Up'].to_i > tableAreaSize
         div class='box WiFi' data-down=row['Down'] data-width=''
             | #{row['Name']}
     - until freq < tableAreaSize do
