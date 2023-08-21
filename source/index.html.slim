@@ -9,11 +9,11 @@ main#main
         - if row['Mode'] == 'FDD' || row['Mode'] = 'SUL'
             - tableAreaSize = row['ULup'].to_i if row['ULup'].to_i > tableAreaSize
             div class='box 3GPP' data-down=row['ULdown'] data-width=''
-                = row['Name'] + '↑'
+                | #{row['Name']} ↑
         - if row['Mode'] == 'TDD' || row['Mode'] = 'SDL' || row['Mode'] = 'FDD'
             - tableAreaSize = row['DLup'].to_i if row['DLup'].to_i > tableAreaSize
             div class='box 3GPP' data-down=row['DLdown'] data-width=''
-                = row['Name'] + '↓'
+                | #{row['Name']} ↓
     - CSV.read('./data/JPBandPlan.csv', headers: true).each do |row|
         - tableAreaSize = row['Up'].to_i if row['Up'].to_i > tableAreaSize
         div class='box JP' data-down=row['Down'] data-width=''

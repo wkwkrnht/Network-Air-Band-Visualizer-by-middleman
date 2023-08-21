@@ -54,27 +54,27 @@ header{
     padding:0;
     text-align:center;
     vertical-align:middle;
-}
 
-.JP.box{
-    background-color:var(--red);
-}
-
-.ISM.box{
-    background-color:var(--black);
-}
-
-.ETSI.box{
-    background-color:var(--black);
-}
-
-.WiFi.box{
-    background-color:var(--right-blue);
+    &.JP{
+        background-color:var(--red);
+    }
+    &.3GPP{
+        background-color:var(--black);
+    }
+    &.WiFi{
+        background-color:var(--right-blue);
+    }
+    &.ETSI{
+        background-color:var(--black);
+    }
+    &.ISM{
+        background-color:var(--black);
+    }
 }
 
 .ruler{
     margin:0;
-    padding:0;
+    padding:0 4em 0 0;
     position:absolute;
     text-align:left;
 }
