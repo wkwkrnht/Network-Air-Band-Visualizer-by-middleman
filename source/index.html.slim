@@ -1,38 +1,36 @@
-ruby:
-    tableAreaSize = 0
-    freq = 0
-    unitOfRuler = 1000
-
-    def update_max( up = 0 )
-        tableAreaSize = up if up > tableAreaSize
-    end
-
 header
     h1 Network Air Band Visualizer
     p &copy;2023 wkwkrnht
 main#main
+    - tableAreaSize = 0
+    - freq = 0
+    - unitOfRuler = 1000
     - CSV.read('./data/3GPPBandPlan.csv', headers: true).each do |row|
         - if row['Mode'] == 'FDD' || row['Mode'] = 'SUL'
             - tableAreaSize = row['ULup'].to_i if row['ULup'].to_i > tableAreaSize
             div class='box 3GPP' data-down=row['ULdown'] data-width=''
-                | #{row['Name']} ↑
+                = row['Name'] + '↑'
         - if row['Mode'] == 'TDD' || row['Mode'] = 'SDL' || row['Mode'] = 'FDD'
             - tableAreaSize = row['DLup'].to_i if row['DLup'].to_i > tableAreaSize
             div class='box 3GPP' data-down=row['DLdown'] data-width=''
-                | #{row['Name']} ↓
+                = row['Name'] + '↓'
+    - CSV.read('./data/JPBandPlan.csv', headers: true).each do |row|
+        - tableAreaSize = row['Up'].to_i if row['Up'].to_i > tableAreaSize
+        div class='box JP' data-down=row['Down'] data-width=''
+            = row['Purpose']
     - CSV.read('./data/ISMBandPlan.csv', headers: true).each do |row|
         - tableAreaSize = row['Up'].to_i if row['Up'].to_i > tableAreaSize
         div class='box ISM' data-down=row['Down'] data-width=''
-            | #{row['Name']}
+            = row['Name']
     - CSV.read('./data/ETSIBandPlan.csv', headers: true).each do |row|
         - tableAreaSize = row['Up'].to_i if row['Up'].to_i > tableAreaSize
         div class='box ETSI' data-down=row['Down'] data-width=''
-            | #{row['Name']}
+            = row['Name']
     - CSV.read('./data/Wi-FiBandPlan.csv', headers: true).each do |row|
         - tableAreaSize = row['Up'].to_i if row['Up'].to_i > tableAreaSize
         div class='box WiFi' data-down=row['Down'] data-width=''
-            | #{row['Name']}
+            = row['Name']
     - until freq < tableAreaSize do
         - freq = freq * unitOfRuler
-        div.ruler style="height:50px;left:#{freq}px;top:20vh;width:#{unitOfRuler}px;"
+        div.ruler style="height:50px;left:#{freq}px;top:20vh;"
             | #{freq} [kHz]
