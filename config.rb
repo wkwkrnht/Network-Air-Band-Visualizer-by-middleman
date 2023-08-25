@@ -37,7 +37,7 @@ helpers do
         freq = 0
         text = ''
 
-        until freq < tableAreaSize do
+        until freq > tableAreaSize do
             temp = (freq * 1000).to_s
 
             text += '<div class="ruler" style="height:50px;left:' + temp + 'px;top:20vh;width:1000px;">' + temp + '[kHz]</div>'
@@ -45,6 +45,7 @@ helpers do
             freq += 1
         end
 
+        puts text
         return text
     end
 end
