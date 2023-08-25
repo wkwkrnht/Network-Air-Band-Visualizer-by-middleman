@@ -13,7 +13,7 @@ const headerHeight = 0.13 * windowHeight;
 
 function detectDisplayDirection(){ // For set styles on elements, detect which direction on the display is wider.
     windowWidth = d.documentElement.clientWidth, // Constructor of the window width.
-    windowHeight = d.documentElement.clientHeight, // Constructor of the window height.
+    windowHeight = d.documentElement.clientHeight; // Constructor of the window height.
 
     if(windowWidth > windowHeight){
         displayDirection = 'landscape';

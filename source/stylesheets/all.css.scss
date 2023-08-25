@@ -112,7 +112,7 @@ header{
     box-shadow:0 0 3vmin rgba(0,0,0,.1);
     color:var(--black);
     display:grid;
-    font-size:calc(var(--ui-size) * 0.4);
+    font-size:calc(var(--ui-size) * 0.8);
     font-weight:bold;
     grid-template-areas:
         "scalerDown scalerUp"
