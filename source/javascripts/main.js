@@ -24,7 +24,7 @@ function detectDisplayDirection(){ // For set styles on elements, detect which d
 
 function updateUnitIndicator(){
     const
-    target = d.getElementsByClassName('unit');
+    target = d.getElementById('unit');
 
     let
     prefix = Number(target.dataset.prefix),
@@ -63,11 +63,10 @@ function updateUnitIndicator(){
 function updateUnitInt( direction = '' ){
     const
     amount = 100,
-    target = d.getElementsByClassName('unit');
+    target = d.getElementById('unit');
 
     let
-    prefix = target.dataset.prefix;
-    prefix = Number(prefix);
+    prefix = Number(target.dataset.prefix);
 
     switch(direction){
         case '+':
@@ -86,7 +85,7 @@ function updateUnitInt( direction = '' ){
 
 function moveMainPart( direction = '' ){
     const
-    target = d.getElementsByClassName('unit'),
+    target = d.getElementById('unit'),
     unit = Number(target.dataset.prefix);
 
     switch(direction){
@@ -160,6 +159,7 @@ function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
 
 function main(){ // Main function.
     detectDisplayDirection();
+    updateUnitIndicator();
 
     setBoxStyleAtCSS();
 }
