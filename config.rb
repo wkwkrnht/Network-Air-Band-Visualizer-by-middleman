@@ -52,7 +52,7 @@ helpers do
         times = area_size.div(unit)
         html = ''
 
-        until freq > times do
+        until freq > times
             temp = (freq * unit).to_s
 
             html += '<div class="ruler" style="height:50px;left:' + temp + 'px;top:20vh;width:1000px;">' + temp + '[kHz]</div>'
