@@ -166,6 +166,6 @@ window.addEventListener('load', main()); // Fire main() after loaded whole of th
 
 
 document.getElementById('scaler-up').addEventListener('click', updateUnitInt('+'));
-document.getElementById('scaler-up').addEventListener('click', updateUnitInt('-'));
+document.getElementById('scaler-down').addEventListener('click', updateUnitInt('-'));
 document.getElementById('move-up').addEventListener('click', moveMainPart('+'));
-document.getElementById('move-up').addEventListener('click', moveMainPart('-'));
+document.getElementById('move-down').addEventListener('click', moveMainPart('-'));
