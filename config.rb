@@ -60,8 +60,7 @@ helpers do
             freq += 1
         end
 
-        puts html
-        return 'html'
+        return html
     end
 end
 
