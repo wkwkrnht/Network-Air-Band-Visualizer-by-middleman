@@ -6,7 +6,8 @@ fixedLengthToStyle = fixedLength.toString() + 'px';
 let
 windowWidth = d.documentElement.clientWidth, // Constructor of the window width.
 windowHeight = d.documentElement.clientHeight, // Constructor of the window height.
-displayDirection = ''; // Variable for note which direction on the display is wider.
+displayDirection = '', // Variable for note which direction on the display is wider.
+unitWidth = d.getElementsByClassName('main').style.fontSize;
 
 const headerHeight = 0.13 * windowHeight;
 
@@ -18,6 +19,102 @@ function detectDisplayDirection(){ // For set styles on elements, detect which d
         displayDirection = 'landscape';
     }else{
         displayDirection = 'portrait';
+    }
+}
+
+function updateUnitIndicator(){
+    const
+    target = d.getElementsByClassName('unit');
+
+    let
+    prefix = Number(target.dataset.prefix),
+    prefixStr = 'k';
+
+    switch(prefix){
+        case 1:
+            prefixStr = '';
+            break;
+        case 1000:
+            prefixStr = 'k';
+            break;
+        case 1000000:
+            prefixStr = 'M';
+            break;
+        case 1000000000:
+            prefixStr = 'G';
+            break;
+        case 0.001:
+            prefixStr = 'm';
+            break;
+        case 0.000001:
+            prefixStr = 'μ';
+            break;
+        case 0.000000001:
+            prefixStr = 'n';
+            break;
+        default:
+            prefixStr = 'k';
+            break;
+    }
+
+    target.innerText = '[' + prefixStr + 'Hz]';
+}
+
+function updateUnitInt( direction = '' ){
+    const
+    amount = 100,
+    target = d.getElementsByClassName('unit');
+
+    let
+    prefix = Number(target.dataset.prefix);
+
+    switch(direction){
+        case '+':
+            prefix *= amount;
+            break;
+        case '-':
+            prefix /= amount;
+            break;
+        default:
+            break;
+    }
+
+    target.dataset.prefix = prefix;
+    updateUnitIndicator();
+}
+
+function moveMainPart( direction = '' ){
+    const
+    target = d.getElementsByClassName('unit'),
+    unit = Number(target.dataset.prefix);
+
+    switch(direction){
+        case '+':
+            switch(displayDirection){
+                case 'landscape':
+                    scrollBy(unit,0);
+                    break;
+                case 'portrait':
+                    scrollBy(0,unit);
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case '-':
+            switch(displayDirection){
+                case 'landscape':
+                    scrollBy(-unit,0);
+                    break;
+                case 'portrait':
+                    scrollBy(0,-unit);
+                    break;
+                default:
+                    break;
+            }
+            break;
+        default:
+            break;
     }
 }
 
@@ -68,3 +165,9 @@ function main(){ // Main function.
 
 window.addEventListener('resize', detectDisplayDirection()); //
 window.addEventListener('load', main()); // Fire main() after loaded whole of the HTML document.
+
+
+d.getElementsByClassName('scaler-up').addEventListener(updateUnitInt('+'));
+d.getElementsByClassName('scaler-up').addEventListener(updateUnitInt('-'));
+d.getElementsByClassName('move-up').addEventListener(moveMainPart('+'));
+d.getElementsByClassName('move-up').addEventListener(moveMainPart('-'));
