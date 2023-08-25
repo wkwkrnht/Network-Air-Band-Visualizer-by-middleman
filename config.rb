@@ -40,7 +40,7 @@ helpers do
         until freq > tableAreaSize do
             temp = (freq * 1000).to_s
 
-            text += URL.encode_www_form('<div class="ruler" style="height:50px;left:' + temp + 'px;top:20vh;width:1000px;">' + temp + '[kHz]</div>')
+            text += '<div class="ruler" style="height:50px;left:' + temp + 'px;top:20vh;width:1000px;">' + temp + '[kHz]</div>'
 
             freq += 1
         end
