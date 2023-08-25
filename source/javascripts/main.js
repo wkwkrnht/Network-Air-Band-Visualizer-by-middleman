@@ -22,10 +22,8 @@ function detectDisplayDirection(){ // For set styles on elements, detect which d
 }
 
 function updateUnitIndicator(){
-    const
-    target = document.getElementById('unit');
-
     let
+    target = document.getElementById('unit'),
     prefix = Number(target.dataset.unitPrefix),
     prefixStr = 'k';
 
@@ -61,10 +59,10 @@ function updateUnitIndicator(){
 
 function updateUnitInt( direction = '' ){
     const
-    amount = 100,
-    target = document.getElementById('unit');
+    amount = 100;
 
     let
+    target = document.getElementById('unit'),
     prefix = Number(target.dataset.unitPrefix);
 
     switch(direction){
