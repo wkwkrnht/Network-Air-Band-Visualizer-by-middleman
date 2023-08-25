@@ -26,7 +26,7 @@ function updateUnitIndicator(){
     target = document.getElementById('unit');
 
     let
-    prefix = Number(target.dataset.prefix),
+    prefix = Number(target.dataset.unitPrefix),
     prefixStr = 'k';
 
     switch(prefix){
@@ -65,7 +65,7 @@ function updateUnitInt( direction = '' ){
     target = document.getElementById('unit');
 
     let
-    prefix = Number(target.dataset.prefix);
+    prefix = Number(target.dataset.unitPrefix);
 
     switch(direction){
         case '+':
@@ -78,14 +78,14 @@ function updateUnitInt( direction = '' ){
             break;
     }
 
-    target.dataset.prefix = prefix;
+    target.dataset.unitPrefix = prefix;
     updateUnitIndicator();
 }
 
 function moveMainPart( direction = '' ){
     const
     target = document.getElementById('unit'),
-    unit = Number(target.dataset.prefix);
+    unit = Number(target.dataset.unitPrefix);
 
     switch(direction){
         case '+':
