@@ -4,7 +4,6 @@ header
 main#main
     - tableAreaSize = 0
     - freq = 0
-    - unitOfRuler = 1000
     - CSV.read('./data/3GPPBandPlan.csv', headers: true).each do |row|
         - if row['Mode'] == 'FDD' || row['Mode'] = 'SUL'
             - tableAreaSize = row['ULup'].to_i unless row['ULup'].to_i < tableAreaSize
@@ -30,8 +29,8 @@ main#main
         - tableAreaSize = row['Up'].to_i unless row['Up'].to_i < tableAreaSize
         div class='box WiFi' data-down=row['Down'] data-up=row['Up'] style="height:50px;left: #{ row['Down'] } px;width: #{ (row['Up'].to_i - row['Down'].to_i).to_s };"
             == row['Name']
-    - until freq > tableAreaSize do
-        - temp = (freq * unitOfRuler).to_s
-        div.ruler style="height:50px;left: #{ temp } px;top:20vh;"
+    - until freq.to_i > tableAreaSize.to_i do
+        - temp = (freq.to_i * 1000).to_s
+        div.ruler style="height:50px;left: #{ temp } px;top:20vh;width:1000px;"
             | #{ temp } [kHz]
         - freq += 1
