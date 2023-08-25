@@ -6,8 +6,8 @@ fixedLengthToStyle = fixedLength.toString() + 'px';
 let
 windowWidth = d.documentElement.clientWidth, // Constructor of the window width.
 windowHeight = d.documentElement.clientHeight, // Constructor of the window height.
-displayDirection = '', // Variable for note which direction on the display is wider.
-unitWidth = d.getElementsByClassName('box').style.fontSize;
+displayDirection = '';//, // Variable for note which direction on the display is wider.
+//unitWidth = d.getElementsByClassName('box').style.fontSize;
 
 const headerHeight = 0.13 * windowHeight;
 
