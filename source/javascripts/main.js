@@ -24,7 +24,7 @@ function detectDisplayDirection(){ // For set styles on elements, detect which d
 function updateUnitIndicator(){
     let
     target = document.getElementById('unit'),
-    prefix = Number(target.dataset.unitPrefix),
+    prefix = Number(target.dataset.unitprefix),
     prefixStr = 'k';
 
     switch(prefix){
@@ -63,7 +63,7 @@ function updateUnitInt( direction = '' ){
 
     let
     target = document.getElementById('unit'),
-    prefix = Number(target.dataset.unitPrefix);
+    prefix = Number(target.dataset.unitprefix);
 
     switch(direction){
         case '+':
@@ -76,14 +76,14 @@ function updateUnitInt( direction = '' ){
             break;
     }
 
-    target.dataset.unitPrefix = prefix;
+    target.dataset.unitprefix = prefix;
     updateUnitIndicator();
 }
 
 function moveMainPart( direction = '' ){
     const
     target = document.getElementById('unit'),
-    unit = Number(target.dataset.unitPrefix);
+    unit = Number(target.dataset.unitprefix);
 
     switch(direction){
         case '+':
