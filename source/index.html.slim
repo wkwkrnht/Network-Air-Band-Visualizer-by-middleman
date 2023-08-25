@@ -3,7 +3,6 @@ header
     p &copy;2023 wkwkrnht
 main#main
     - tableAreaSize = 0
-    - freq = 0
     - CSV.read('./data/3GPPBandPlan.csv', headers: true).each do |row|
         - if row['Mode'] == 'FDD' || row['Mode'] = 'SUL'
             - tableAreaSize = row['ULup'].to_i unless row['ULup'].to_i < tableAreaSize
