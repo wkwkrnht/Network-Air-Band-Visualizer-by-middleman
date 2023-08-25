@@ -15,6 +15,7 @@
 
     font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN','Hiragino Sans',Meiryo,sans-serif;
     font-feature-settings:'pkna' 1;
+    font-size:1px;
     scroll-behavior:smooth;
     text-overflow:ellipsis;
     white-space:nowrap;
@@ -54,6 +55,11 @@ header{
     padding:0;
     text-align:center;
     vertical-align:middle;
+
+    & > span{
+        font-size:14px;
+        text-align:center;
+    }
 
     &.JP{
         background-color:var(--red);
