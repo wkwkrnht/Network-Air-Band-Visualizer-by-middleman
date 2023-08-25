@@ -34,6 +34,18 @@ page "/partials/*", layout: false
 activate :directory_indexes
 
 helpers do
+    def update_max( target = 0, chaser = 0 )
+        if chaser > target
+            return chaser
+        elsif target > chaser
+            return target
+        elsif chaser === target
+            return target
+        else
+            return target
+        end
+    end
+
     def write_ruler( tableAreaSize = 0 )
         freq = 0
         text = ''
@@ -58,7 +70,7 @@ configure :build do
     activate :minify_css
 
     # Minify Javascript on build
-    activate :minify_javascript#, compressor: ::Uglifier.new(mangle: true, compress: { drop_console: true }, output: {comments: :none})
+    #activate :minify_javascript, compressor: ::Uglifier.new(mangle: true, compress: { drop_console: true }, output: {comments: :none})
 
     # Use Gzip
     activate :gzip
