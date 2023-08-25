@@ -16,6 +16,7 @@ Slim::Engine.set_options shortcut: {
 # https://middlemanapp.com/basics/layouts/
 
 # Per-page layout changes
+page '/*.ruby-version', layout: false
 page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.csv', layout: false
