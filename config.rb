@@ -55,7 +55,7 @@ helpers do
         until freq > times
             temp = (freq * unit).to_s
 
-            html += '<div class="ruler" style="height:50px;left:' + temp + 'px;top:20vh;width:1000px;">' + temp + '[kHz]</div>'
+            html += '<div class="ruler" style="height:50px;left:' + temp + 'px;top:20vh;width:1000px;"><span>' + temp + '</span></div>'
 
             freq += 1
         end
