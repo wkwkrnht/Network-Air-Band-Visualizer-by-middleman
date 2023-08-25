@@ -33,7 +33,19 @@ page "/partials/*", layout: false
 activate :directory_indexes
 
 helpers do
-    #helper to set background images with asset hashes in a style attribute
+    def write_ruler( tableAreaSize = 0 )
+        text = ''
+
+        until freq < tableAreaSize do
+            temp = (freq * 1000).to_s
+
+            text += '<div class="ruler" style="height:50px;left:' + temp + 'px;top:20vh;width:1000px;">' + temp + '[kHz]</div>'
+
+            freq += 1
+        end
+
+        return text
+    end
 end
 
 # Build-specific configuration
