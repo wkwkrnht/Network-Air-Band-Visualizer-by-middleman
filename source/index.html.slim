@@ -28,7 +28,7 @@ main#main
             == row['Name']
     - CSV.read('./data/Wi-FiBandPlan.csv', headers: true).each do |row|
         - tableAreaSize = row['Up'].to_i unless row['Up'].to_i < tableAreaSize
-        div class='box WiFi' data-down=row['Down'] data-width=(row['Up'] - row['Down'])
+        div class='box WiFi' data-down=row['Down'] data-width=#{row['Up'] - row['Down']}
             == row['Name']
     - until freq > tableAreaSize do
         - temp = freq * unitOfRuler
