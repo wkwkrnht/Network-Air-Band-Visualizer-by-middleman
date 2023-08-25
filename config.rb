@@ -46,19 +46,21 @@ helpers do
         end
     end
 
-    def write_ruler( tableAreaSize = 0 )
+    def write_ruler( area_size = 0 )
         freq = 0
-        text = ''
+        unit = 1000
+        times = area_size.div(unit)
+        html = ''
 
-        until freq > tableAreaSize do
-            temp = (freq * 1000).to_s
+        until freq > times do
+            temp = (freq * unit).to_s
 
-            text += '<div class="ruler" style="height:50px;left:' + temp + 'px;top:20vh;width:1000px;">' + temp + '[kHz]</div>'
+            html += '<div class="ruler" style="height:50px;left:' + temp + 'px;top:20vh;width:1000px;">' + temp + '[kHz]</div>'
 
             freq += 1
         end
 
-        return text
+        return html
     end
 end
 

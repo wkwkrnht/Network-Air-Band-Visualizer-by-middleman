@@ -14,7 +14,7 @@ main#main
                 | #{row['Name']} ↓
     - CSV.read('./data/JPBandPlan.csv', headers: true).each do |row|
         - tableAreaSize = update_max( tableAreaSize, row['Up'].to_i )
-        div class='box JP' data-down=row['Down'] data-up=row['Up'] style="height:50px;left: #{ row['Down'] }px;top:30vh;width: #{ (row['Up'].to_i - row['Down'].to_i).to_s }px;"
+        div class='box JP' data-down=row['down'] data-up=row['up'] style="height:50px;left: #{ row['down'] }px;top:30vh;width: #{ (row['up'].to_i - row['down'].to_i).to_s }px;"
             ==row['Purpose']
     - CSV.read('./data/ISMBandPlan.csv', headers: true).each do |row|
         - tableAreaSize = update_max( tableAreaSize, row['Up'].to_i )
@@ -33,4 +33,4 @@ main#main
         div.ruler style="height:50px;left: #{ temp } px;top:20vh;width:1000px;"
             | #{ temp } [kHz]
         - freq += 1
-    /==write_ruler(tableAreaSize)
+    ==write_ruler(tableAreaSize)
