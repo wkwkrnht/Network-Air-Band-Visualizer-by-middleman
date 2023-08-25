@@ -1,19 +1,18 @@
 const
-d = document,
 fixedLength = 60, // Constructor of fixed part of box size.
 fixedLengthToStyle = fixedLength.toString() + 'px';
 
 let
-windowWidth = d.documentElement.clientWidth, // Constructor of the window width.
-windowHeight = d.documentElement.clientHeight, // Constructor of the window height.
+windowWidth = document.documentElement.clientWidth, // Constructor of the window width.
+windowHeight = document.documentElement.clientHeight, // Constructor of the window height.
 displayDirection = '';//, // Variable for note which direction on the display is wider.
 //unitWidth = d.getElementsByClassName('box').style.fontSize;
 
 const headerHeight = 0.13 * windowHeight;
 
 function detectDisplayDirection(){ // For set styles on elements, detect which direction on the display is wider.
-    windowWidth = d.documentElement.clientWidth, // Constructor of the window width.
-    windowHeight = d.documentElement.clientHeight; // Constructor of the window height.
+    windowWidth = document.documentElement.clientWidth, // Constructor of the window width.
+    windowHeight = document.documentElement.clientHeight; // Constructor of the window height.
 
     if(windowWidth > windowHeight){
         displayDirection = 'landscape';
@@ -24,7 +23,7 @@ function detectDisplayDirection(){ // For set styles on elements, detect which d
 
 function updateUnitIndicator(){
     const
-    target = d.getElementById('unit');
+    target = document.getElementById('unit');
 
     let
     prefix = Number(target.dataset.prefix),
@@ -63,7 +62,7 @@ function updateUnitIndicator(){
 function updateUnitInt( direction = '' ){
     const
     amount = 100,
-    target = d.getElementById('unit');
+    target = document.getElementById('unit');
 
     let
     prefix = Number(target.dataset.prefix);
@@ -85,7 +84,7 @@ function updateUnitInt( direction = '' ){
 
 function moveMainPart( direction = '' ){
     const
-    target = d.getElementById('unit'),
+    target = document.getElementById('unit'),
     unit = Number(target.dataset.prefix);
 
     switch(direction){
@@ -124,7 +123,7 @@ function calcAmountOfMove(baseline = 0, unit = 0, times = 0){ // Calculating the
 
 function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
     const
-    targets = d.getElementsByClassName('box'), // List of air band boxes
+    targets = document.getElementsByClassName('box'), // List of air band boxes
     length = targets.length;
     let
     i = 0,
@@ -168,7 +167,7 @@ window.addEventListener('resize', detectDisplayDirection()); //
 window.addEventListener('load', main()); // Fire main() after loaded whole of the HTML document.
 
 
-d.getElementsByClassName('scaler-up').addEventListener(updateUnitInt('+'));
-d.getElementsByClassName('scaler-up').addEventListener(updateUnitInt('-'));
-d.getElementsByClassName('move-up').addEventListener(moveMainPart('+'));
-d.getElementsByClassName('move-up').addEventListener(moveMainPart('-'));
+document.getElementById('scaler-up').addEventListener(updateUnitInt('+'));
+document.getElementById('scaler-up').addEventListener(updateUnitInt('-'));
+document.getElementById('move-up').addEventListener(moveMainPart('+'));
+document.getElementById('move-up').addEventListener(moveMainPart('-'));
