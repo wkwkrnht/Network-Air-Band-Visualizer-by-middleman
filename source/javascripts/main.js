@@ -66,7 +66,8 @@ function updateUnitInt( direction = '' ){
     target = d.getElementsByClassName('unit');
 
     let
-    prefix = Number(target.dataset.prefix);
+    prefix = target.dataset.prefix;
+    prefix = Number(prefix);
 
     switch(direction){
         case '+':
