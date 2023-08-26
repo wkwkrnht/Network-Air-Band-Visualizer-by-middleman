@@ -110,13 +110,7 @@ function moveMainPart(symbol){
 
 function calcAmountOfMove(baseline, unit, times){ // Calculating the DOM will move how much.
     return
-    (
-        (
-            baseline * 0.12
-        ) + (
-            times * unit * 1.2
-        )
-    );
+    ((baseline * 0.12) + (times * unit * 1.2));
 }
 
 function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
