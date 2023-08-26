@@ -106,7 +106,7 @@ function calcAmountOfMove(baseline, unit, times){ // Calculating the DOM will mo
     return ((baseline * 0.12) + (times * unit * 1.2));
 }
 
-function adjustBoxStyleAtCSS(){ // Set size and position for each air band boxes.
+function adjustBoxLocation(){ // Set size and position for each air band boxes.
     let targets = document.getElementsByClassName('box'); // List of air band boxes
 
     for( var i = 0; i < targets.length; i++ ){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
@@ -137,7 +137,7 @@ function main(){ // Main function.
     updateDisplayDirection();
     updateUnitIndicator();
 
-    setBoxStyleAtCSS();
+    adjustBoxLocation();
 
     const
     e1 = document.getElementById('scaler-up'),
