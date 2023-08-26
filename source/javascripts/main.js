@@ -103,8 +103,7 @@ function moveMainPart(symbol){
 }
 
 function calcAmountOfMove(baseline, unit, times){ // Calculating the DOM will move how much.
-    return
-    ((baseline * 0.12) + (times * unit * 1.2));
+    return ((baseline * 0.12) + (times * unit * 1.2));
 }
 
 function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
@@ -112,7 +111,7 @@ function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
     targets = document.getElementsByClassName('box'), // List of air band boxes
     length = targets.length;
 
-    for(let i = 0; i < length; i++){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
+    for(i in targets){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
         let
         d1D = targets[i].dataset.down,
         d1U = targets[i].dataset.up,
