@@ -13,6 +13,7 @@
     --header-height:8vh;
     --fixed-length:50px;
     --box-font-size:14px;
+    --box-stroke-size:3px;
     --ui-size:4vh;
     --unit-indicator-size:8em;
     --unit-indicator-position:2em;
@@ -24,12 +25,6 @@
     white-space:nowrap;
 }
 
-header,
-.box{
-    background-color:var(--black);
-    color:var(--white);
-}
-
 body{
     margin:0;
     padding:0;
@@ -37,6 +32,7 @@ body{
 
 header{
     background-color:var(--black);
+    color:var(--white);
     height:var(--header-height);
     left:0;
     margin:0 0 var(--base-vertical-rhythm);
@@ -57,9 +53,19 @@ header{
     padding:0;
 
     &::before{
+        color:var(--white);
         content:attr(data-name, 'unknown');
         //font-size:var(--box-font-size);
         text-align:center;
+        text-shadow:
+        var(--box-stroke-size) var(--box-stroke-size) var(--box-stroke-size) var(--dark-gray),
+        calc(-1 * var(--box-stroke-size)) calc(-1 * var(--box-stroke-size)) var(--box-stroke-size) var(--dark-gray),
+        calc(-1 * var(--box-stroke-size)) var(--box-stroke-size) var(--box-stroke-size) var(--dark-gray),
+        var(--box-stroke-size) calc(-1 * var(--box-stroke-size)) var(--box-stroke-size) var(--dark-gray),
+        var(--box-stroke-size) 0 var(--box-stroke-size) var(--dark-gray),
+        calc(-1 * var(--box-stroke-size))  0 var(--box-stroke-size) var(--dark-gray),
+        0 var(--box-stroke-size) var(--box-stroke-size) var(--dark-gray),
+        0 calc(-1 * var(--box-stroke-size)) var(--box-stroke-size) var(--dark-gray);
         vertical-align:middle;
     }
 
@@ -156,5 +162,9 @@ header{
 @media (max-aspect-ratio: 1/1) {
     #main{
         transform:rotate(90deg);
+    }
+
+    .box,.ruler{
+        margin-top:calc(-1 * (var(--header-height) + var(--base-vertical-rhythm)));
     }
 }
