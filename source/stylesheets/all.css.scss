@@ -15,8 +15,8 @@
     --box-font-size:14px;
     --box-stroke-size:3px;
     --ui-size:4vh;
-    --unit-indicator-size:8em;
-    --unit-indicator-position:2em;
+    --unit-indicator-size:6em;
+    --unit-indicator-position:2rem;
 
     font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN','Hiragino Sans',Meiryo,sans-serif;
     font-feature-settings:'pkna' 1;
@@ -47,7 +47,6 @@ header{
 .box{
     box-sizing:border-box;
     //font-size:1px;
-    font-weight:bold;
     margin:0;
     position:absolute;
     padding:0;
@@ -56,6 +55,7 @@ header{
         color:var(--white);
         content:attr(data-name, 'unknown');
         //font-size:var(--box-font-size);
+        font-weight:bold;
         text-align:center;
         text-shadow:
         var(--box-stroke-size) var(--box-stroke-size) var(--box-stroke-size) var(--dark-gray),

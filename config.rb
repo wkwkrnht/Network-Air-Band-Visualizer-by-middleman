@@ -72,11 +72,8 @@ configure :build do
     activate :minify_css
 
     # Minify Javascript on build
-    #activate :minify_javascript, compressor: ::Uglifier.new(mangle: true, compress: { drop_console: true }, output: {comments: :none})
+    activate :minify_javascript, compressor: ::Uglifier.new(mangle: true, compress: { drop_console: true }, output: {comments: :none})
 
     # Use Gzip
     activate :gzip
-
-    #Use asset hashes to use for caching
-    #activate :asset_hash
 end
