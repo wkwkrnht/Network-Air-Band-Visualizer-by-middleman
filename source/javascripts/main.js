@@ -3,11 +3,7 @@ windowWidth = document.documentElement.clientWidth, // Constructor of the window
 windowHeight = document.documentElement.clientHeight, // Constructor of the window height.
 displayDirection = '', // Variable for note which direction on the display is wider.
 unitWidth = 1000,
-headerHeight = 0.13 * windowHeight,
-e1 = document.getElementById('scaler-up'),
-e2 = document.getElementById('scaler-down'),
-e3 = document.getElementById('move-up'),
-e4 = document.getElementById('move-down');
+headerHeight = 0.13 * windowHeight;
 
 function updateDisplayDirection(){ // For set styles on elements, detect which direction on the display is wider.
     windowWidth = document.documentElement.clientWidth, // Constructor of the window width.
@@ -143,16 +139,22 @@ function main(){ // Main function.
     updateUnitIndicator();
 
     setBoxStyleAtCSS();
+
+    const
+    e1 = document.getElementById('scaler-up'),
+    e2 = document.getElementById('scaler-down'),
+    e3 = document.getElementById('move-up'),
+    e4 = document.getElementById('move-down');
+
+    e1.addEventListener('click', updateUnitInt('+'));
+    e1.addEventListener('touchstart', updateUnitInt('+'));
+    e2.addEventListener('click', updateUnitInt('-'));
+    e2.addEventListener('touchstart', updateUnitInt('-'));
+    e3.addEventListener('click', moveMainPart('+'));
+    e3.addEventListener('touchstart', moveMainPart('+'));
+    e4.addEventListener('click', moveMainPart('-'));
+    e4.addEventListener('touchstart', moveMainPart('-'));
 }
 
 window.addEventListener('resize', updateDisplayDirection()); //
 window.addEventListener('load', main()); // Fire main() after loaded whole of the HTML document.
-
-e1.addEventListener('click', updateUnitInt('+'));
-e1.addEventListener('touchstart', updateUnitInt('+'));
-e2.addEventListener('click', updateUnitInt('-'));
-e2.addEventListener('touchstart', updateUnitInt('-'));
-e3.addEventListener('click', moveMainPart('+'));
-e3.addEventListener('touchstart', moveMainPart('+'));
-e4.addEventListener('click', moveMainPart('-'));
-e4.addEventListener('touchstart', moveMainPart('-'));
