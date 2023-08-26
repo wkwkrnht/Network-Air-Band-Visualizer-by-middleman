@@ -28,8 +28,6 @@ function updateUnitIndicator(){
     prefix = Number(target.dataset.unitprefix),
     prefixStr = 'k';
 
-    console.log(prefix);
-
     switch(prefix){
         case 1:
             prefixStr = '';
@@ -70,12 +68,12 @@ function updateUnitInt( symbol = '' ){
     target = document.getElementById('unit'),
     prefix = Number(target.dataset.unitprefix);
 
-    console.log(prefix);
-
     if(symbol == '+'){
         prefix *= amount;
+        console.log(prefix);
     }else if(symbol == '-'){
         prefix /= amount;
+        console.log(prefix);
     }
 
     if(prefix > max){
@@ -83,8 +81,6 @@ function updateUnitInt( symbol = '' ){
     }else if(prefix < min){
         prefix = min;
     }
-
-    console.log(prefix);
 
     target.dataset.unitprefix = prefix;
     updateUnitIndicator();
@@ -95,15 +91,17 @@ function moveMainPart( symbol = '' ){
     target = document.getElementById('unit'),
     unit = Number(target.dataset.unitprefix) * unitWidth;
 
-    console.log(unit);
-
     if(displayDirection == 'landscape' && symbol == '+'){
+        console.log(unit);
         window.scrollBy(unit,0);
     }else if(displayDirection == 'landscape' && symbol == '-'){
+        console.log(unit);
         window.scrollBy(-unit,0);
     }else if(displayDirection == 'portrait' && symbol == '+'){
+        console.log(unit);
         window.scrollBy(0,unit);
     }else if(displayDirection == 'portrait' && symbol == '-'){
+        console.log(unit);
         window.scrollBy(0,-unit);
     }
 }
@@ -118,18 +116,14 @@ function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
     targets = document.getElementsByClassName('box'), // List of air band boxes
     length = targets.length;
 
-    let
-    i = 0,
-    j = 0;
-
-    while( i < length ){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
+    for( let i = 0; i < length; i++ ){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
         const
         d1D = targets[i].dataset.down,
         d1U = targets[i].dataset.up;
         let
         number = 0; // Value of counting of colision
 
-        for( j = 0; j < length; j++ ){ // Count Colision from sizes of the air band box and others.
+        for( let j = 0; j < length; j++ ){ // Count Colision from sizes of the air band box and others.
             if( i !== j ){
                 const
                 d2D = targets[j].dataset.down, // DOM proparty of others.
@@ -142,8 +136,6 @@ function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
         }
 
         targets[i].style.top = calcAmountOfMove(windowHeight, fixedLength, number);
-
-        i++;
     }
 }
 
