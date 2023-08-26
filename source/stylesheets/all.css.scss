@@ -128,15 +128,19 @@ header{
 }
 
 #scaler-up{
+    cursor:zoom-in;
     grid-area:scalerUp;
 }
 #scaler-down{
+    cursor:zoom-out;
     grid-area:scalerDown;
 }
 #move-up{
+    cursor:all-scroll;
     grid-area:moveUp;
 }
 #move-down{
+    cursor:all-scroll;
     grid-area:moveDown;
 }
 

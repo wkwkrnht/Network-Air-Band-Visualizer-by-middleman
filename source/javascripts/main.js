@@ -1,12 +1,15 @@
 const
 fixedLength = 60, // Constructor of fixed part of box size.
-fixedLengthToStyle = fixedLength.toString() + 'px';
+e1 = document.getElementById('scaler-up'),
+e2 = document.getElementById('scaler-down'),
+e3 = document.getElementById('move-up'),
+e4 = document.getElementById('move-down');
 
 let
 windowWidth = document.documentElement.clientWidth, // Constructor of the window width.
 windowHeight = document.documentElement.clientHeight, // Constructor of the window height.
-displayDirection = '';//, // Variable for note which direction on the display is wider.
-//unitWidth = d.getElementsByClassName('box').style.fontSize;
+displayDirection = ''; // Variable for note which direction on the display is wider.
+//unitWidth = 1000;
 
 const headerHeight = 0.13 * windowHeight;
 
@@ -58,6 +61,7 @@ function updateUnitIndicator(){
 }
 
 function updateUnitInt( direction = '' ){
+    console.log('fired');
     const
     amount = 100;
 
@@ -81,6 +85,7 @@ function updateUnitInt( direction = '' ){
 }
 
 function moveMainPart( direction = '' ){
+    console.log('fired');
     const
     target = document.getElementById('unit'),
     unit = Number(target.dataset.unitprefix);
@@ -164,8 +169,11 @@ function main(){ // Main function.
 window.addEventListener('resize', detectDisplayDirection()); //
 window.addEventListener('load', main()); // Fire main() after loaded whole of the HTML document.
 
-
-document.getElementById('scaler-up').addEventListener('click', updateUnitInt('+'));
-document.getElementById('scaler-down').addEventListener('click', updateUnitInt('-'));
-document.getElementById('move-up').addEventListener('click', moveMainPart('+'));
-document.getElementById('move-down').addEventListener('click', moveMainPart('-'));
+e1.addEventListener('click', updateUnitInt('+'));
+e1.addEventListener('touchstart', updateUnitInt('+'));
+e2.addEventListener('click', updateUnitInt('-'));
+e2.addEventListener('touchstart', updateUnitInt('-'));
+e3.addEventListener('click', moveMainPart('+'));
+e3.addEventListener('touchstart', moveMainPart('+'));
+e4.addEventListener('click', moveMainPart('-'));
+e4.addEventListener('touchstart', moveMainPart('-'));
