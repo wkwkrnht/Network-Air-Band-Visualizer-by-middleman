@@ -25,7 +25,10 @@
     white-space:nowrap;
 }
 
-body{
+body,
+header,
+.box,
+.ruler{
     margin:0;
     padding:0;
 }
@@ -35,8 +38,7 @@ header{
     color:var(--white);
     height:var(--header-height);
     left:0;
-    margin:0 0 var(--base-vertical-rhythm);
-    padding:0;
+    margin-bottom:var(--base-vertical-rhythm);
     position:fixed;
     text-align:center;
     top:0;
@@ -57,12 +59,19 @@ header{
     }
 }
 
+h1{
+    font-size:1.5rem;
+}
+
+.box,
+.ruler{
+    height:var(--fixed-length);
+    position:absolute;
+}
+
 .box{
     box-sizing:border-box;
     //font-size:1px;
-    margin:0;
-    position:absolute;
-    padding:0;
 
     &::before{
         color:var(--white);
@@ -79,7 +88,6 @@ header{
         calc(-1 * var(--box-stroke-size))  0 var(--box-stroke-size) var(--dark-gray),
         0 var(--box-stroke-size) var(--box-stroke-size) var(--dark-gray),
         0 calc(-1 * var(--box-stroke-size)) var(--box-stroke-size) var(--dark-gray);
-        vertical-align:middle;
     }
 
     &.JP{
@@ -100,10 +108,6 @@ header{
 }
 
 .ruler{
-    height:var(--fixed-length);
-    margin:0;
-    padding:0;
-    position:absolute;
     text-align:left;
     top:calc(var(--header-height) + var(--base-vertical-rhythm));
     width:1000px;
@@ -114,37 +118,35 @@ header{
     }
 }
 
-#unit{
-    background-color:rgba(255, 255, 255, .4);
-    bottom:var(--unit-indicator-position);
+#unit,
+.ui{
     box-shadow:0 0 3vmin rgba(0,0,0,.1);
     color:var(--black);
     font-weight:bold;
-    left:var(--unit-indicator-position);
-    height:calc(var(--unit-indicator-size) / 2);
     position:fixed;
     text-align:center;
-    vertical-align:middle;
-    width:var(--unit-indicator-size);
     z-index:100;
+}
+
+#unit{
+    background-color:rgba(255, 255, 255, .4);
+    bottom:var(--unit-indicator-position);
+    left:var(--unit-indicator-position);
+    height:calc(var(--unit-indicator-size) / 2);
+    width:var(--unit-indicator-size);
 }
 
 .ui{
     background-color:rgba(255, 255, 255, .4);
     bottom:var(--unit-indicator-position);
-    box-shadow:0 0 3vmin rgba(0,0,0,.1);
-    color:var(--black);
     display:grid;
     font-size:calc(var(--ui-size) * 0.8);
-    font-weight:bold;
     grid-template-areas:
         "scalerDown scalerUp"
         "moveDown moveUp";
     height:calc(var(--ui-size) * 2);
-    position:fixed;
     right:var(--unit-indicator-position);
     width:calc(var(--ui-size) * 2);
-    z-index:100;
 
     & > button{
         border:1px solid var(--right-gray);

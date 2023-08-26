@@ -11,7 +11,7 @@ e2 = document.getElementById('scaler-down'),
 e3 = document.getElementById('move-up'),
 e4 = document.getElementById('move-down');
 
-function detectDisplayDirection(){ // For set styles on elements, detect which direction on the display is wider.
+function updateDisplayDirection(){ // For set styles on elements, detect which direction on the display is wider.
     windowWidth = document.documentElement.clientWidth, // Constructor of the window width.
     windowHeight = document.documentElement.clientHeight; // Constructor of the window height.
 
@@ -141,23 +141,21 @@ function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
             }
         }
 
-        if(number !== 0){ // If this is hitting with someone, set the style to adjust the box at fixed direction.
-            targets[i].style.top = calcAmountOfMove(windowHeight, fixedLength, number);
-        }
+        targets[i].style.top = calcAmountOfMove(windowHeight, fixedLength, number);
 
         i++;
     }
 }
 
-/*function main(){ // Main function.
-    detectDisplayDirection();
+function main(){ // Main function.
+    updateDisplayDirection();
     updateUnitIndicator();
 
     setBoxStyleAtCSS();
-}*/
+}
 
-window.addEventListener('resize', detectDisplayDirection()); //
-//window.addEventListener('load', main()); // Fire main() after loaded whole of the HTML document.
+window.addEventListener('resize', updateDisplayDirection()); //
+window.addEventListener('load', main()); // Fire main() after loaded whole of the HTML document.
 
 e1.addEventListener('click', updateUnitInt('+'));
 e1.addEventListener('touchstart', updateUnitInt('+'));
