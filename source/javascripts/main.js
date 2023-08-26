@@ -100,7 +100,7 @@ function moveMainPart( direction = '' ){
     target = document.getElementById('unit'),
     unit = Number(target.dataset.unitprefix) * unitWidth;
 
-    console.log(prefix);
+    console.log(unit);
 
     switch(direction){
         case '+':
