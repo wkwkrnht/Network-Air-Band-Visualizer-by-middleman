@@ -1,16 +1,11 @@
 main#main
     - tableAreaSize = 0
     - CSV.foreach('./data/3GPPBandPlan.csv', headers: true) do |row|
-        - if row['Mode'] = 'SUL'
+        - if row['Mode'] == 'FDD' || row['Mode'] == 'SUL'
             - tableAreaSize = update_max( tableAreaSize, row['ULup'].to_i )
             div class='box 3GPP' data-name=="#{ row['Name'].to_s } ↑" data-down=row['ULdown'] data-up=row['ULup'] style="left: #{ row['ULdown'] }px;width: #{ (row['ULup'].to_i - row['ULdown'].to_i).to_s }px;"
-        - elsif row['Mode'] == 'TDD' || row['Mode'] = 'SDL'
+        - if row['Mode'] == 'TDD' || row['Mode'] == 'SDL' || row['Mode'] == 'FDD'
             - tableAreaSize = update_max( tableAreaSize, row['DLup'].to_i )
-            div class='box 3GPP' data-name=="#{ row['Name'].to_s } ↓" data-down=row['DLdown'] data-up=row['DLup'] style="left: #{ row['DLdown'] }px;width: #{ (row['DLup'].to_i - row['DLdown'].to_i).to_s }px;"
-        - elsif row['Mode'] = 'FDD'
-            - tableAreaSize = update_max( tableAreaSize, row['ULup'].to_i )
-            - tableAreaSize = update_max( tableAreaSize, row['DLup'].to_i )
-            div class='box 3GPP' data-name=="#{ row['Name'].to_s } ↑" data-down=row['ULdown'] data-up=row['ULup'] style="left: #{ row['ULdown'] }px;width: #{ (row['ULup'].to_i - row['ULdown'].to_i).to_s }px;"
             div class='box 3GPP' data-name=="#{ row['Name'].to_s } ↓" data-down=row['DLdown'] data-up=row['DLup'] style="left: #{ row['DLdown'] }px;width: #{ (row['DLup'].to_i - row['DLdown'].to_i).to_s }px;"
     - CSV.foreach('./data/JPBandPlan.csv', headers: true) do |row|
         - tableAreaSize = update_max( tableAreaSize, row['Up'].to_i )
