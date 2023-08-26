@@ -25,7 +25,7 @@ function updateDisplayDirection(){ // For set styles on elements, detect which d
 function updateUnitIndicator(){
     let
     target = document.getElementById('unit'),
-    prefix = Number(target.dataset.unitprefix),
+    prefix = parseFloat(target.dataset.unitprefix),
     prefixStr = 'k';
 
     switch(prefix){
@@ -66,13 +66,13 @@ function updateUnitInt(symbol){
 
     let
     target = document.getElementById('unit'),
-    prefix = Number(target.dataset.unitprefix);
+    prefix = parseFloat(target.dataset.unitprefix);
 
     if(symbol == '+'){
-        prefix *= amount;
+        prefix = prefix * amount;
         console.log(prefix);
     }else if(symbol == '-'){
-        prefix /= amount;
+        prefix = prefix / amount;
         console.log(prefix);
     }
 
@@ -89,7 +89,7 @@ function updateUnitInt(symbol){
 function moveMainPart(symbol){
     const
     target = document.getElementById('unit'),
-    unit = Number(target.dataset.unitprefix) * unitWidth;
+    unit = parseFloat(target.dataset.unitprefix) * unitWidth;
 
     if(displayDirection == 'landscape' && symbol == '+'){
         console.log(unit);
@@ -112,7 +112,6 @@ function calcAmountOfMove(baseline, unit, times){ // Calculating the DOM will mo
 
 function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
     const
-    fixedLength = 50, // Constructor of fixed part of box size.
     targets = document.getElementsByClassName('box'), // List of air band boxes
     length = targets.length;
 
@@ -135,7 +134,7 @@ function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
             }
         }
 
-        targets[i].style.top = calcAmountOfMove(windowHeight, fixedLength, number);
+        targets[i].style.top = calcAmountOfMove(windowHeight, 50, number);
     }
 }
 
