@@ -9,9 +9,9 @@
     --red:red;
     --right-blue:#03a9f4;
 
-    --base-vertical-rhythm:2vh;
+    --base-vertical-rhythm:1vh;
     --header-height:8vh;
-    --fixed-length:60px;
+    --fixed-length:50px;
     --box-font-size:14px;
     --ui-size:4vh;
     --unit-indicator-size:8em;
@@ -31,10 +31,8 @@ header,
 }
 
 body{
-    height:100vh;
     margin:0;
     padding:0;
-    width:100vw;
 }
 
 header{
@@ -42,7 +40,7 @@ header{
     height:var(--header-height);
     left:0;
     margin:0 0 var(--base-vertical-rhythm);
-    padding:2em;
+    padding:1em 0;
     position:fixed;
     text-align:center;
     top:0;
@@ -57,12 +55,12 @@ header{
     margin:0;
     position:absolute;
     padding:0;
-    text-align:center;
-    vertical-align:middle;
 
-    & > span{
+    &::before{
+        content:attr(data-name, 'unknown');
         //font-size:var(--box-font-size);
         text-align:center;
+        vertical-align:middle;
     }
 
     &.JP{
@@ -83,10 +81,13 @@ header{
 }
 
 .ruler{
+    height:var(--fixed-length);
     margin:0;
-    padding:0 4em 0 0;
+    padding:0;
     position:absolute;
     text-align:left;
+    top:calc(var(--header-height) + var(--base-vertical-rhythm));
+    width:1000px;
 
     & > span{
         //font-size:var(--box-font-size);
@@ -101,9 +102,10 @@ header{
     color:var(--black);
     font-weight:bold;
     left:var(--unit-indicator-position);
-    height:var(--unit-indicator-size);
+    height:calc(var(--unit-indicator-size) / 2);
     position:fixed;
     text-align:center;
+    vertical-align:middle;
     width:var(--unit-indicator-size);
     z-index:100;
 }

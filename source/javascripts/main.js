@@ -109,12 +109,12 @@ function moveMainPart( symbol = '' ){
 }
 
 function calcAmountOfMove(baseline = 0, unit = 0, times = 0){ // Calculating the DOM will move how much.
-    return ((baseline * 0.18) + (times * unit * 1.2));
+    return ((baseline * 0.12) + (times * unit * 1.2));
 }
 
 function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
     const
-    fixedLength = 60, // Constructor of fixed part of box size.
+    fixedLength = 50, // Constructor of fixed part of box size.
     targets = document.getElementsByClassName('box'), // List of air band boxes
     length = targets.length;
 
@@ -149,15 +149,15 @@ function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
     }
 }
 
-function main(){ // Main function.
+/*function main(){ // Main function.
     detectDisplayDirection();
     updateUnitIndicator();
 
     setBoxStyleAtCSS();
-}
+}*/
 
 window.addEventListener('resize', detectDisplayDirection()); //
-window.addEventListener('load', main()); // Fire main() after loaded whole of the HTML document.
+//window.addEventListener('load', main()); // Fire main() after loaded whole of the HTML document.
 
 e1.addEventListener('click', updateUnitInt('+'));
 e1.addEventListener('touchstart', updateUnitInt('+'));
