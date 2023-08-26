@@ -45,7 +45,15 @@ header{
 
     & > *{
         margin:0 auto;
-        padding:1em 0;
+        padding:0;
+    }
+
+    &:first-child{
+        padding-top:1em;
+    }
+
+    &:last-child{
+        padding-bottom:1em;
     }
 }
 
