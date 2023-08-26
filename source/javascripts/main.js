@@ -124,6 +124,8 @@ function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
                 d2D = targets[j].dataset.down, // DOM proparty of others.
                 d2U = targets[j].dataset.up; // DOM proparty of others.
 
+                console.log(targets[j].dataset);
+
                 if( ((d1D < d2D) && (d2D < d1U))  || ((d1D < d2U) && (d2U < d1U)) ){
                     number++;
                 }
