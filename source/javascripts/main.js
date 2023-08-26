@@ -87,27 +87,36 @@ function updateUnitInt(symbol){
 }
 
 function moveMainPart(symbol){
-    const
+    let
     target = document.getElementById('unit'),
     unit = parseFloat(target.dataset.unitprefix) * unitWidth;
 
     if(displayDirection == 'landscape' && symbol == '+'){
         console.log(unit);
-        window.scrollBy(unit,0);
+        window.scrollBy(unit, 0);
     }else if(displayDirection == 'landscape' && symbol == '-'){
+        unit = -1 * unit;
         console.log(unit);
-        window.scrollBy(-unit,0);
+        window.scrollBy(unit, 0);
     }else if(displayDirection == 'portrait' && symbol == '+'){
         console.log(unit);
-        window.scrollBy(0,unit);
+        window.scrollBy(0, unit);
     }else if(displayDirection == 'portrait' && symbol == '-'){
+        unit = -1 * unit;
         console.log(unit);
-        window.scrollBy(0,-unit);
+        window.scrollBy(0, unit);
     }
 }
 
 function calcAmountOfMove(baseline, unit, times){ // Calculating the DOM will move how much.
-    return ((baseline * 0.12) + (times * unit * 1.2));
+    return
+    (
+        (
+            baseline * 0.12
+        ) + (
+            times * unit * 1.2
+        )
+    );
 }
 
 function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
