@@ -120,7 +120,7 @@ function calcAmountOfMove(baseline, unit, times){ // Calculating the DOM will mo
 }
 
 function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
-    const
+    let
     targets = document.getElementsByClassName('box'), // List of air band boxes
     length = targets.length;
 
