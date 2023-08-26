@@ -4,7 +4,7 @@ main#main
         - if row['Mode'] = 'SUL'
             - tableAreaSize = update_max( tableAreaSize, row['ULup'].to_i )
             div class='box 3GPP' data-name=="#{ row['Name'].to_s } ↑" data-down=row['ULdown'] data-up=row['ULup'] style="left: #{ row['ULdown'] }px;width: #{ (row['ULup'].to_i - row['ULdown'].to_i).to_s }px;"
-        - elsif row['Mode'] == 'TDD' || row['Mode'] = 'SDL' ||
+        - elsif row['Mode'] == 'TDD' || row['Mode'] = 'SDL'
             - tableAreaSize = update_max( tableAreaSize, row['DLup'].to_i )
             div class='box 3GPP' data-name=="#{ row['Name'].to_s } ↓" data-down=row['DLdown'] data-up=row['DLup'] style="left: #{ row['DLdown'] }px;width: #{ (row['DLup'].to_i - row['DLdown'].to_i).to_s }px;"
         - elsif row['Mode'] = 'FDD'
