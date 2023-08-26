@@ -8,8 +8,8 @@ e4 = document.getElementById('move-down');
 let
 windowWidth = document.documentElement.clientWidth, // Constructor of the window width.
 windowHeight = document.documentElement.clientHeight, // Constructor of the window height.
-displayDirection = ''; // Variable for note which direction on the display is wider.
-//unitWidth = 1000;
+displayDirection = '', // Variable for note which direction on the display is wider.
+unitWidth = 1000;
 
 const headerHeight = 0.13 * windowHeight;
 
@@ -61,43 +61,55 @@ function updateUnitIndicator(){
 }
 
 function updateUnitInt( direction = '' ){
-    console.log('fired');
     const
-    amount = 100;
+    amount = 100,
+    max = 1000000000,
+    min = 0.000000001;
 
     let
     target = document.getElementById('unit'),
     prefix = Number(target.dataset.unitprefix);
 
+    console.log(prefix);
+
     switch(direction){
         case '+':
             prefix *= amount;
+            if(prefix > max){
+                prefix = max;
+            }
             break;
         case '-':
             prefix /= amount;
+            if(prefix < min){
+                prefix = min;
+            }
             break;
         default:
             break;
     }
+
+    console.log(prefix);
 
     target.dataset.unitprefix = prefix;
     updateUnitIndicator();
 }
 
 function moveMainPart( direction = '' ){
-    console.log('fired');
     const
     target = document.getElementById('unit'),
-    unit = Number(target.dataset.unitprefix);
+    unit = Number(target.dataset.unitprefix) * unitWidth;
+
+    console.log(prefix);
 
     switch(direction){
         case '+':
             switch(displayDirection){
                 case 'landscape':
-                    scrollBy(unit,0);
+                    window.scrollBy(unit,0);
                     break;
                 case 'portrait':
-                    scrollBy(0,unit);
+                    window.scrollBy(0,unit);
                     break;
                 default:
                     break;
@@ -106,10 +118,10 @@ function moveMainPart( direction = '' ){
         case '-':
             switch(displayDirection){
                 case 'landscape':
-                    scrollBy(-unit,0);
+                    window.scrollBy(-unit,0);
                     break;
                 case 'portrait':
-                    scrollBy(0,-unit);
+                    window.scrollBy(0,-unit);
                     break;
                 default:
                     break;
@@ -121,7 +133,7 @@ function moveMainPart( direction = '' ){
 }
 
 function calcAmountOfMove(baseline = 0, unit = 0, times = 0){ // Calculating the DOM will move how much.
-    return ((baseline * 0.3) + (times * unit * 1.2));
+    return ((baseline * 0.18) + (times * unit * 1.2));
 }
 
 function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.

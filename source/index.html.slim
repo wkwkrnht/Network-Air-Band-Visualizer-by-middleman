@@ -36,10 +36,9 @@ main#main
             | #{ temp } [kHz]
         - freq += 1
     ==write_ruler(tableAreaSize)
-footer
-    aside#unit data-unitPrefix='1000'
-    section.ui
-        button#scaler-up type='button' name='scaler-up' +
-        button#scaler-down type='button' name='scaler-down' -
-        button#move-up type='button' name='move-up' →
-        button#move-down type='button' name='move-down' ←
+aside#unit data-unitPrefix='1000'
+nav.ui
+    button#scaler-up type='button' name='scaler-up' +
+    button#scaler-down type='button' name='scaler-down' -
+    button#move-up type='button' name='move-up' →
+    button#move-down type='button' name='move-down' ←
