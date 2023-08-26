@@ -83,7 +83,8 @@ function updateUnitInt(symbol){
 function moveMainPart(symbol){
     let
     target = document.getElementById('unit'),
-    unit = parseFloat(target.dataset.unitprefix) * unitWidth;
+    unit = parseFloat(target.dataset.unitprefix);
+    unit = unit * unitWidth;
 
     if(displayDirection == 'landscape' && symbol == '+'){
         window.scrollBy(unit, 0);
@@ -111,7 +112,7 @@ function adjustBoxLocation(){ // Set size and position for each air band boxes.
         d1U = targets[i].dataset.up,
         number = 0; // Value of counting of colision
 
-        for( var j = 0; j < targets.length; j++ ){ // Count Colision from sizes of the air band box and others.
+        for( var j = 0; j < i; j++ ){ // Count Colision from sizes of the air band box and others.
             if(i !== j){
                 let
                 d2D = targets[j].dataset.down, // DOM proparty of others.
