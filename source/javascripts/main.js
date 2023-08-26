@@ -58,7 +58,7 @@ function updateUnitIndicator(){
     target.innerText = '[' + prefixStr + 'Hz]';
 }
 
-function updateUnitInt( symbol = '' ){
+function updateUnitInt(symbol){
     const
     amount = 100,
     max = 1000000000,
@@ -86,7 +86,7 @@ function updateUnitInt( symbol = '' ){
     updateUnitIndicator();
 }
 
-function moveMainPart( symbol = '' ){
+function moveMainPart(symbol){
     const
     target = document.getElementById('unit'),
     unit = Number(target.dataset.unitprefix) * unitWidth;
@@ -106,7 +106,7 @@ function moveMainPart( symbol = '' ){
     }
 }
 
-function calcAmountOfMove(baseline = 0, unit = 0, times = 0){ // Calculating the DOM will move how much.
+function calcAmountOfMove(baseline, unit, times){ // Calculating the DOM will move how much.
     return ((baseline * 0.12) + (times * unit * 1.2));
 }
 
