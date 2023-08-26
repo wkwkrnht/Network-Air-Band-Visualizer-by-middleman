@@ -106,26 +106,28 @@ function calcAmountOfMove(baseline, unit, times){ // Calculating the DOM will mo
     return ((baseline * 0.12) + (times * unit * 1.2));
 }
 
-function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
+function adjustBoxStyleAtCSS(){ // Set size and position for each air band boxes.
     let targets = document.getElementsByClassName('box'); // List of air band boxes
 
-    for(i = 0; i < targets.length; i++){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
+    for( var i = 0; i < targets.length; i++ ){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
         let
-        d1D = parseFloat(targets[i].dataset.down),
-        d1U = parseFloat(targets[i].dataset.up),
+        d1D = targets[i].dataset.down,
+        d1U = targets[i].dataset.up,
         number = 0; // Value of counting of colision
 
-        for(j = 0; j < i; j++){ // Count Colision from sizes of the air band box and others.
+        for( var j = 0; j < targets.length; j++ ){ // Count Colision from sizes of the air band box and others.
             if(i !== j){
                 let
-                d2D = parseFloat(targets[j].dataset.down), // DOM proparty of others.
-                d2U = parseFloat(targets[j].dataset.up); // DOM proparty of others.
+                d2D = targets[j].dataset.down, // DOM proparty of others.
+                d2U = targets[j].dataset.up; // DOM proparty of others.
 
                 if( ((d1D < d2D) && (d2D < d1U))  || ((d1D < d2U) && (d2U < d1U)) ){
                     number++;
                 }
             }
         }
+
+        console.log(calcAmountOfMove(windowHeight, 50, number));
 
         targets[i].style.top = calcAmountOfMove(windowHeight, 50, number);
     }
