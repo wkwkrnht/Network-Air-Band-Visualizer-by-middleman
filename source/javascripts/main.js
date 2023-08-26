@@ -1,10 +1,8 @@
-let
+var
 windowWidth = document.documentElement.clientWidth, // Constructor of the window width.
 windowHeight = document.documentElement.clientHeight, // Constructor of the window height.
 displayDirection = '', // Variable for note which direction on the display is wider.
-unitWidth = 1000;
-
-const
+unitWidth = 1000,
 headerHeight = 0.13 * windowHeight,
 e1 = document.getElementById('scaler-up'),
 e2 = document.getElementById('scaler-down'),
@@ -118,14 +116,14 @@ function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
     targets = document.getElementsByClassName('box'), // List of air band boxes
     length = targets.length;
 
-    /*for( let i = 0; i < length; i++ ){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
+    for(let i = 0; i < length; i++){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
         let
         d1D = targets[i].dataset.down,
         d1U = targets[i].dataset.up,
         number = 0; // Value of counting of colision
 
-        for( let j = 0; j < length; j++ ){ // Count Colision from sizes of the air band box and others.
-            if( i !== j ){
+        for(let j = 0; j < length; j++){ // Count Colision from sizes of the air band box and others.
+            if(i !== j){
                 let
                 d2D = targets[j].dataset.down, // DOM proparty of others.
                 d2U = targets[j].dataset.up; // DOM proparty of others.
@@ -137,7 +135,7 @@ function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
         }
 
         targets[i].style.top = calcAmountOfMove(windowHeight, 50, number);
-    }*/
+    }
 }
 
 function main(){ // Main function.
