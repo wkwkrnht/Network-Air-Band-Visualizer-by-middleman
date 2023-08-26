@@ -117,7 +117,7 @@ function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
         d1U = targets[i].dataset.up,
         number = 0; // Value of counting of colision
 
-        for(let j = 0; j < length; j++){ // Count Colision from sizes of the air band box and others.
+        for(j in targets){ // Count Colision from sizes of the air band box and others.
             if(i !== j){
                 let
                 d2D = targets[j].dataset.down, // DOM proparty of others.
