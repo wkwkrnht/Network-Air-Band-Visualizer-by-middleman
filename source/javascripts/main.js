@@ -86,18 +86,14 @@ function moveMainPart(symbol){
     unit = parseFloat(target.dataset.unitprefix) * unitWidth;
 
     if(displayDirection == 'landscape' && symbol == '+'){
-        console.log(unit);
         window.scrollBy(unit, 0);
     }else if(displayDirection == 'landscape' && symbol == '-'){
         unit = -1 * unit;
-        console.log(unit);
         window.scrollBy(unit, 0);
     }else if(displayDirection == 'portrait' && symbol == '+'){
-        console.log(unit);
         window.scrollBy(0, unit);
     }else if(displayDirection == 'portrait' && symbol == '-'){
         unit = -1 * unit;
-        console.log(unit);
         window.scrollBy(0, unit);
     }
 }
@@ -127,9 +123,7 @@ function adjustBoxLocation(){ // Set size and position for each air band boxes.
             }
         }
 
-        console.log(calcAmountOfMove(windowHeight, 50, number));
-
-        targets[i].style.top = calcAmountOfMove(windowHeight, 50, number);
+        targets[i].style.top = calcAmountOfMove(windowHeight, 50, number) + 'px';
     }
 }
 
