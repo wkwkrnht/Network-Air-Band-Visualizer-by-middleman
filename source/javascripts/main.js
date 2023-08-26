@@ -109,7 +109,7 @@ function calcAmountOfMove(baseline, unit, times){ // Calculating the DOM will mo
 function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
     let targets = document.getElementsByClassName('box'); // List of air band boxes
 
-    for(i in targets){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
+    for(i = 0; i < targets.length; i++){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
         let
         d1D = parseFloat(targets[i].dataset.down),
         d1U = parseFloat(targets[i].dataset.up),
