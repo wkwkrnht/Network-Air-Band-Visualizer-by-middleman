@@ -108,14 +108,15 @@ function calcAmountOfMove(baseline, unit, times){ // Calculating the DOM will mo
 
 function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
     let
-    targets = document.getElementsByClassName('box'), // List of air band boxes
-    length = targets.length;
+    targets = document.getElementsByClassName('box'); // List of air band boxes
 
     for(i in targets){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
         let
         d1D = targets[i].dataset.down,
         d1U = targets[i].dataset.up,
         number = 0; // Value of counting of colision
+
+        console.log(targets[i].dataset);
 
         for(j in targets){ // Count Colision from sizes of the air band box and others.
             if(i !== j){
