@@ -1,17 +1,15 @@
-const
-fixedLength = 60, // Constructor of fixed part of box size.
-e1 = document.getElementById('scaler-up'),
-e2 = document.getElementById('scaler-down'),
-e3 = document.getElementById('move-up'),
-e4 = document.getElementById('move-down');
-
 let
 windowWidth = document.documentElement.clientWidth, // Constructor of the window width.
 windowHeight = document.documentElement.clientHeight, // Constructor of the window height.
 displayDirection = '', // Variable for note which direction on the display is wider.
 unitWidth = 1000;
 
-const headerHeight = 0.13 * windowHeight;
+const
+headerHeight = 0.13 * windowHeight,
+e1 = document.getElementById('scaler-up'),
+e2 = document.getElementById('scaler-down'),
+e3 = document.getElementById('move-up'),
+e4 = document.getElementById('move-down');
 
 function detectDisplayDirection(){ // For set styles on elements, detect which direction on the display is wider.
     windowWidth = document.documentElement.clientWidth, // Constructor of the window width.
@@ -29,6 +27,8 @@ function updateUnitIndicator(){
     target = document.getElementById('unit'),
     prefix = Number(target.dataset.unitprefix),
     prefixStr = 'k';
+
+    console.log(prefix);
 
     switch(prefix){
         case 1:
@@ -60,7 +60,7 @@ function updateUnitIndicator(){
     target.innerText = '[' + prefixStr + 'Hz]';
 }
 
-function updateUnitInt( direction = '' ){
+function updateUnitInt( symbol = '' ){
     const
     amount = 100,
     max = 1000000000,
@@ -72,21 +72,16 @@ function updateUnitInt( direction = '' ){
 
     console.log(prefix);
 
-    switch(direction){
-        case '+':
-            prefix *= amount;
-            if(prefix > max){
-                prefix = max;
-            }
-            break;
-        case '-':
-            prefix /= amount;
-            if(prefix < min){
-                prefix = min;
-            }
-            break;
-        default:
-            break;
+    if(symbol == '+'){
+        prefix *= amount;
+    }else if(symbol == '-'){
+        prefix /= amount;
+    }
+
+    if(prefix > max){
+        prefix = max;
+    }else if(prefix < min){
+        prefix = min;
     }
 
     console.log(prefix);
@@ -95,40 +90,21 @@ function updateUnitInt( direction = '' ){
     updateUnitIndicator();
 }
 
-function moveMainPart( direction = '' ){
+function moveMainPart( symbol = '' ){
     const
     target = document.getElementById('unit'),
     unit = Number(target.dataset.unitprefix) * unitWidth;
 
     console.log(unit);
 
-    switch(direction){
-        case '+':
-            switch(displayDirection){
-                case 'landscape':
-                    window.scrollBy(unit,0);
-                    break;
-                case 'portrait':
-                    window.scrollBy(0,unit);
-                    break;
-                default:
-                    break;
-            }
-            break;
-        case '-':
-            switch(displayDirection){
-                case 'landscape':
-                    window.scrollBy(-unit,0);
-                    break;
-                case 'portrait':
-                    window.scrollBy(0,-unit);
-                    break;
-                default:
-                    break;
-            }
-            break;
-        default:
-            break;
+    if(displayDirection == 'landscape' && symbol == '+'){
+        window.scrollBy(unit,0);
+    }else if(displayDirection == 'landscape' && symbol == '-'){
+        window.scrollBy(-unit,0);
+    }else if(displayDirection == 'portrait' && symbol == '+'){
+        window.scrollBy(0,unit);
+    }else if(displayDirection == 'portrait' && symbol == '-'){
+        window.scrollBy(0,-unit);
     }
 }
 
@@ -138,8 +114,10 @@ function calcAmountOfMove(baseline = 0, unit = 0, times = 0){ // Calculating the
 
 function setBoxStyleAtCSS(){ // Set size and position for each air band boxes.
     const
+    fixedLength = 60, // Constructor of fixed part of box size.
     targets = document.getElementsByClassName('box'), // List of air band boxes
     length = targets.length;
+
     let
     i = 0,
     j = 0;
