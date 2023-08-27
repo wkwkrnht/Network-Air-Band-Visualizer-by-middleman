@@ -132,10 +132,10 @@ function main(){ // Main function.
 
     adjustBoxLocation();
 
-    document.getElementById('scaler-up').onClick = updateUnitInt('+');
-    document.getElementById('scaler-down').onClick = updateUnitInt('-');
-    document.getElementById('move-up').onClick = moveMainPart('+');
-    document.getElementById('move-down').onClick = moveMainPart('-');
+    document.getElementById('scaler-up').onclick = updateUnitInt('+');
+    document.getElementById('scaler-down').onclick = updateUnitInt('-');
+    document.getElementById('move-up').onclick = moveMainPart('+');
+    document.getElementById('move-down').onclick = moveMainPart('-');
 }
 
 window.addEventListener('resize', updateDisplayDirection()); //
