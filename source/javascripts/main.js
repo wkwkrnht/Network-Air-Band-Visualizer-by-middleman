@@ -60,6 +60,7 @@ function updateUnitInt( symbol = '' ){
 
     let
     target = document.getElementById('unit'),
+    targets = document.getElementsByClassName('box'),
     prefix = parseFloat(target.dataset.unitprefix);
 
     if(this.symbol !== undefined){
@@ -68,8 +69,14 @@ function updateUnitInt( symbol = '' ){
 
     if(symbol == '+'){
         prefix = prefix / amount;
+        for( var i = 0; i < targets.length; i++ ){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
+            targets[i].style.fontSize = (parseFloat(targets[i].style.fontSize) / amount) + 'px';
+        }
     }else if(symbol == '-'){
         prefix = prefix * amount;
+        for( var i = 0; i < targets.length; i++ ){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
+            targets[i].style.fontSize = (parseFloat(targets[i].style.fontSize) * amount) + 'px';
+        }
     }
 
     if(prefix > max){
@@ -91,7 +98,6 @@ function moveMainPart( symbol = '' ){
     if(this.symbol !== undefined){
         symbol = this.symbol;
     }
-
 
     if(displayDirection == 'landscape' && symbol == '+'){
         window.scrollBy(unit, 0);
