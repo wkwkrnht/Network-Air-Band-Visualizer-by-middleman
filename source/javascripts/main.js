@@ -18,7 +18,7 @@ function updateDisplayDirection(){ // For set styles on elements, detect which d
     }
 }
 
-async function updateUnitIndicator(){
+function updateUnitIndicator(){
     let
     target = document.getElementById('unit'),
     prefix = parseFloat(target.dataset.unitprefix),
@@ -54,7 +54,7 @@ async function updateUnitIndicator(){
     target.innerText = '[' + prefixStr + 'Hz]';
 }
 
-async function updateBoxSize(){
+function updateBoxSize(){
     const initial = 1000;
     let
     target = document.getElementById('unit'),
@@ -70,7 +70,7 @@ async function updateBoxSize(){
     loading.style.display = 'none';
 }
 
-async function updateUnitInt( symbol = '' ){
+function updateUnitInt( symbol = '' ){
     const
     amount = 100,
     max = 1000000000,
@@ -98,8 +98,8 @@ async function updateUnitInt( symbol = '' ){
     }
 
     target.dataset.unitprefix = prefix;
-    //updateBoxSize();
     updateUnitIndicator();
+    updateBoxSize();
 }
 
 function moveMainPart( symbol = '' ){
@@ -158,7 +158,7 @@ function adjustBoxLocation(){ // Set size and position for each air band boxes.
     loading.style.display = 'none';
 }
 
-async function main(){ // Main function.
+function main(){ // Main function.
     updateDisplayDirection();
     updateUnitIndicator();
 
