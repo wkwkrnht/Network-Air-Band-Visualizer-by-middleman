@@ -158,7 +158,8 @@ async function main(){ // Main function.
     e1 = document.getElementById('scaler-up'),
     e2 = document.getElementById('scaler-down'),
     e3 = document.getElementById('move-up'),
-    e4 = document.getElementById('move-down');
+    e4 = document.getElementById('move-down'),
+    e5 = document.getElementById('unit');
 
     e1.addEventListener('click', {symbol: '+', handleEvent: updateUnitInt});
     e1.addEventListener('touchstart', {symbol: '+', handleEvent: updateUnitInt});
@@ -168,6 +169,7 @@ async function main(){ // Main function.
     e3.addEventListener('touchstart', {symbol: '+', handleEvent: moveMainPart});
     e4.addEventListener('click', {symbol: '-', handleEvent: moveMainPart});
     e4.addEventListener('touchstart', {symbol: '-', handleEvent: moveMainPart});
+    e5.addEventListener('change', updateUnitIndicator());
 }
 
 window.addEventListener('resize', updateDisplayDirection()); //
