@@ -59,7 +59,7 @@ function updateBoxSize(){
     target = document.getElementById('unit'),
     targets = document.getElementsByClassName('box'),
     prefix = parseFloat(target.dataset.unitprefix),
-    fontSize = 1 / prefix;
+    fontSize = (1 / prefix) * 1000; // 現状DBが[kHz]のため暫定対応
 
     loading.style.display = 'block';
 
@@ -72,7 +72,7 @@ function updateBoxSize(){
 
 function updateUnitInt( symbol = '' ){
     const
-    amount = 100,
+    amount = 1000,
     max = 1000000000,
     min = 0.000000001;
 
