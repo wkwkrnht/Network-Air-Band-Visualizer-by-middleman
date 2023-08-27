@@ -53,7 +53,7 @@ helpers do
         html = ''
 
         until freq > times
-            temp = (freq * unit * unit).to_s
+            temp = (freq * unit).to_s
 
             html += '<div class="ruler" style="left:' + temp + 'px;"><span>' + temp + '</span></div>'
 

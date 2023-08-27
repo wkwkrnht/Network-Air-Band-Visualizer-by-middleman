@@ -47,7 +47,7 @@ function updateUnitIndicator(){
             prefixStr = 'n';
             break;
         default:
-            prefixStr = '';
+            prefixStr = 'k';
             break;
     }
 
@@ -59,7 +59,7 @@ function updateBoxSize(){
     target = document.getElementById('unit'),
     targets = document.getElementsByClassName('box'),
     prefix = parseFloat(target.dataset.unitprefix),
-    fontSize = (1 / prefix) * 1000; // 現状DBが[kHz]のため暫定対応
+    fontSize = (1 / prefix);
 
     loading.style.display = 'block';
 
