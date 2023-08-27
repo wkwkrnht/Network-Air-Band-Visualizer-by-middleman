@@ -86,9 +86,8 @@ h1{
     box-sizing:border-box;
     font-size:1px;
 
-    &::before{
+    & > span{
         color:var(--white);
-        content:attr(data-name);
         font-size:var(--box-font-size);
         font-weight:bold;
         text-align:center;
