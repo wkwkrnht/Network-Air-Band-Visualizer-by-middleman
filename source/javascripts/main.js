@@ -91,7 +91,7 @@ async function updateUnitInt( symbol = '' ){
         prefix = min;
     }
 
-    await target.dataset.unitprefix = prefix;
+    target.dataset.unitprefix = prefix;
     //updateBoxUnit();
     updateUnitIndicator();
 }
