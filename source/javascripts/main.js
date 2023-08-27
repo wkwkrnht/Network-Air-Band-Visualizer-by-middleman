@@ -2,7 +2,7 @@ var
 windowWidth = document.documentElement.clientWidth, // Constructor of the window width.
 windowHeight = document.documentElement.clientHeight, // Constructor of the window height.
 displayDirection = '', // Variable for note which direction on the display is wider.
-unitWidth = 1000,
+unitWidth = 100,
 headerHeight = 0.13 * windowHeight;
 
 const loading = document.getElementById('loading');
@@ -60,7 +60,7 @@ function updateBoxSize(){
     target = document.getElementById('unit'),
     targets = document.getElementsByClassName('box'),
     prefix = parseFloat(target.dataset.unitprefix),
-    fontSize = (1 / (prefix / 1000));
+    fontSize = (1 / (prefix / initial));
 
     loading.style.display = 'block';
 
