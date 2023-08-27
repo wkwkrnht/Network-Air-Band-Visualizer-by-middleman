@@ -47,7 +47,7 @@ function updateUnitIndicator(){
             prefixStr = 'n';
             break;
         default:
-            prefixStr = 'k';
+            prefixStr = '';
             break;
     }
 
@@ -55,12 +55,11 @@ function updateUnitIndicator(){
 }
 
 function updateBoxSize(){
-    const initial = 1000;
     let
     target = document.getElementById('unit'),
     targets = document.getElementsByClassName('box'),
     prefix = parseFloat(target.dataset.unitprefix),
-    fontSize = prefix / initial;
+    fontSize = 1 / prefix;
 
     loading.style.display = 'block';
 
@@ -162,7 +161,12 @@ function main(){ // Main function.
     updateDisplayDirection();
     updateUnitIndicator();
 
+    loading.style.display = 'block';
+
+    updateBoxSize();
     adjustBoxLocation();
+
+    loading.style.display = 'none';
 
     const
     e1 = document.getElementById('scaler-up'),
