@@ -93,14 +93,14 @@ h1{
         font-weight:bold;
         text-align:center;
         text-shadow:
-        var(--box-stroke-size) var(--box-stroke-size) var(--box-stroke-size) var(--dark-gray),
-        calc(-1 * var(--box-stroke-size)) calc(-1 * var(--box-stroke-size)) var(--box-stroke-size) var(--dark-gray),
-        calc(-1 * var(--box-stroke-size)) var(--box-stroke-size) var(--box-stroke-size) var(--dark-gray),
-        var(--box-stroke-size) calc(-1 * var(--box-stroke-size)) var(--box-stroke-size) var(--dark-gray),
-        var(--box-stroke-size) 0 var(--box-stroke-size) var(--dark-gray),
-        calc(-1 * var(--box-stroke-size))  0 var(--box-stroke-size) var(--dark-gray),
-        0 var(--box-stroke-size) var(--box-stroke-size) var(--dark-gray),
-        0 calc(-1 * var(--box-stroke-size)) var(--box-stroke-size) var(--dark-gray);
+        var(--box-stroke-size) var(--box-stroke-size) var(--box-stroke-size) var(--black),
+        calc(-1 * var(--box-stroke-size)) calc(-1 * var(--box-stroke-size)) var(--box-stroke-size) var(--black),
+        calc(-1 * var(--box-stroke-size)) var(--box-stroke-size) var(--box-stroke-size) var(--black),
+        var(--box-stroke-size) calc(-1 * var(--box-stroke-size)) var(--box-stroke-size) var(--black),
+        var(--box-stroke-size) 0 var(--box-stroke-size) var(--black),
+        calc(-1 * var(--box-stroke-size))  0 var(--box-stroke-size) var(--black),
+        0 var(--box-stroke-size) var(--box-stroke-size) var(--black),
+        0 calc(-1 * var(--box-stroke-size)) var(--box-stroke-size) var(--black);
     }
 
     &.JP{
