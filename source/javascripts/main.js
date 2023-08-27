@@ -52,7 +52,7 @@ function updateUnitIndicator(){
     target.innerText = '[' + prefixStr + 'Hz]';
 }
 
-function updateUnitInt( symbol = '+' ){
+function updateUnitInt( symbol = '' ){
     const
     amount = 100,
     max = 1000000000,
@@ -61,6 +61,10 @@ function updateUnitInt( symbol = '+' ){
     let
     target = document.getElementById('unit'),
     prefix = parseFloat(target.dataset.unitprefix);
+
+    if(this.symbol !== undefined){
+        symbol = this.symbol;
+    }
 
     if(symbol == '+'){
         prefix = prefix / amount;
@@ -78,11 +82,16 @@ function updateUnitInt( symbol = '+' ){
     updateUnitIndicator();
 }
 
-function moveMainPart( symbol = '-' ){
+function moveMainPart( symbol = '' ){
     let
     target = document.getElementById('unit'),
     unit = parseFloat(target.dataset.unitprefix);
     unit = unit * unitWidth;
+
+    if(this.symbol !== undefined){
+        symbol = this.symbol;
+    }
+
 
     if(displayDirection == 'landscape' && symbol == '+'){
         window.scrollBy(unit, 0);
@@ -132,10 +141,20 @@ function main(){ // Main function.
 
     adjustBoxLocation();
 
-    document.getElementById('scaler-up').onclick = updateUnitInt('+');
-    document.getElementById('scaler-down').onclick = updateUnitInt('-');
-    document.getElementById('move-up').onclick = moveMainPart('+');
-    document.getElementById('move-down').onclick = moveMainPart('-');
+    const
+    e1 = document.getElementById('scaler-up'),
+    e2 = document.getElementById('scaler-down'),
+    e3 = document.getElementById('move-up'),
+    e4 = document.getElementById('move-down');
+
+    e1.addEventListener('click', {symbol: '+', handleEvent: updateUnitInt});
+    e1.addEventListener('touchstart', {symbol: '+', handleEvent: updateUnitInt});
+    e2.addEventListener('click', {symbol: '-', handleEvent: updateUnitInt});
+    e2.addEventListener('touchstart', {symbol: '-', handleEvent: updateUnitInt});
+    e3.addEventListener('click', {symbol: '+', handleEvent: moveMainPart});
+    e3.addEventListener('touchstart', {symbol: '+', handleEvent: moveMainPart});
+    e4.addEventListener('click', {symbol: '-', handleEvent: moveMainPart});
+    e4.addEventListener('touchstart', {symbol: '-', handleEvent: moveMainPart});
 }
 
 window.addEventListener('resize', updateDisplayDirection()); //
