@@ -64,10 +64,8 @@ function updateUnitInt(symbol){
 
     if(symbol == '+'){
         prefix = prefix * amount;
-        console.log(prefix);
     }else if(symbol == '-'){
         prefix = prefix / amount;
-        console.log(prefix);
     }
 
     if(prefix > max){
@@ -100,7 +98,7 @@ function moveMainPart(symbol){
 }
 
 function calcAmountOfMove(baseline, unit, times){ // Calculating the DOM will move how much.
-    return ((baseline * 0.12) + (times * unit * 1.2));
+    return ((baseline * 0.11) + (times * unit * 1.2));
 }
 
 function adjustBoxLocation(){ // Set size and position for each air band boxes.
@@ -134,20 +132,10 @@ function main(){ // Main function.
 
     adjustBoxLocation();
 
-    const
-    e1 = document.getElementById('scaler-up'),
-    e2 = document.getElementById('scaler-down'),
-    e3 = document.getElementById('move-up'),
-    e4 = document.getElementById('move-down');
-
-    e1.addEventListener('click', updateUnitInt('+'));
-    e1.addEventListener('touchstart', updateUnitInt('+'));
-    e2.addEventListener('click', updateUnitInt('-'));
-    e2.addEventListener('touchstart', updateUnitInt('-'));
-    e3.addEventListener('click', moveMainPart('+'));
-    e3.addEventListener('touchstart', moveMainPart('+'));
-    e4.addEventListener('click', moveMainPart('-'));
-    e4.addEventListener('touchstart', moveMainPart('-'));
+    document.getElementById('scaler-up').onClick = updateUnitInt('+');
+    document.getElementById('scaler-down').onClick = updateUnitInt('-');
+    document.getElementById('move-up').onClick = moveMainPart('+');
+    document.getElementById('move-down').onClick = moveMainPart('-');
 }
 
 window.addEventListener('resize', updateDisplayDirection()); //
