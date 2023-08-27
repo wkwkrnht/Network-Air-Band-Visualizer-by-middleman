@@ -52,7 +52,7 @@ function updateUnitIndicator(){
     target.innerText = '[' + prefixStr + 'Hz]';
 }
 
-function updateUnitInt(symbol){
+function updateUnitInt( symbol = '+' ){
     const
     amount = 100,
     max = 1000000000,
@@ -63,9 +63,9 @@ function updateUnitInt(symbol){
     prefix = parseFloat(target.dataset.unitprefix);
 
     if(symbol == '+'){
-        prefix = prefix * amount;
-    }else if(symbol == '-'){
         prefix = prefix / amount;
+    }else if(symbol == '-'){
+        prefix = prefix * amount;
     }
 
     if(prefix > max){
@@ -78,7 +78,7 @@ function updateUnitInt(symbol){
     updateUnitIndicator();
 }
 
-function moveMainPart(symbol){
+function moveMainPart( symbol = '-' ){
     let
     target = document.getElementById('unit'),
     unit = parseFloat(target.dataset.unitprefix);
