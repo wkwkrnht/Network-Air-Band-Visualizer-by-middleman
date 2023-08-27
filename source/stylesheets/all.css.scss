@@ -18,7 +18,9 @@
     --right-gray:#bbb;
     --white:#fff;
     --red:red;
-    --right-blue:#03a9f4;
+    --right-blue:#3ff9dc;
+    --blue:#03a9f4;
+    --yellow:#eae3b4;
 
     --base-vertical-rhythm:1vh;
     --header-height:8vh;
@@ -86,7 +88,7 @@ h1{
 
     &::before{
         color:var(--white);
-        content:attr(data-name, 'unknown');
+        content:attr(data-name);
         font-size:var(--box-font-size);
         font-weight:bold;
         text-align:center;
@@ -105,10 +107,10 @@ h1{
         background-color:var(--red);
     }
     &.3GPP{
-        background-color:var(--black);
+        background-color:var(--right-blue);
     }
     &.WiFi{
-        background-color:var(--right-blue);
+        background-color:var(--blue);
     }
     &.ETSI{
         background-color:var(--black);
@@ -197,7 +199,7 @@ h1{
     justify-content:space-between;
 }
 .pulse-bubble{
-    background-color:#3ff9dc;
+    background-color:var(--right-blue);
     border-radius:50%;
     height:20px;
     width:20px;
