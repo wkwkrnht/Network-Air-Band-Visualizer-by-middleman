@@ -54,6 +54,7 @@ function updateUnitIndicator(){
 
 function updateUnitInt( symbol = '' ){
     const
+    initial = 1000,
     amount = 100,
     max = 1000000000,
     min = 0.000000001;
@@ -69,14 +70,8 @@ function updateUnitInt( symbol = '' ){
 
     if(symbol == '+'){
         prefix = prefix / amount;
-        for( var i = 0; i < targets.length; i++ ){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
-            targets[i].style.fontSize = (parseFloat(targets[i].style.fontSize) / amount) + 'px';
-        }
     }else if(symbol == '-'){
         prefix = prefix * amount;
-        for( var i = 0; i < targets.length; i++ ){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
-            targets[i].style.fontSize = (parseFloat(targets[i].style.fontSize) * amount) + 'px';
-        }
     }
 
     if(prefix > max){
@@ -86,6 +81,10 @@ function updateUnitInt( symbol = '' ){
     }
 
     target.dataset.unitprefix = prefix;
+    let fontSize = prefix / initial;
+    for( var i = 0; i < targets.length; i++ ){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
+        targets[i].style.fontSize = fontSize + 'px';
+    }
     updateUnitIndicator();
 }
 
