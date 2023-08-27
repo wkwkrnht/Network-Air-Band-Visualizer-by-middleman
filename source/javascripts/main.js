@@ -148,7 +148,7 @@ function adjustBoxLocation(){ // Set size and position for each air band boxes.
     }
 }
 
-function main(){ // Main function.
+async function main(){ // Main function.
     updateDisplayDirection();
     updateUnitIndicator();
 
