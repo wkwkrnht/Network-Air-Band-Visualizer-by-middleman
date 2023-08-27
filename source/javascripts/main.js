@@ -58,6 +58,7 @@ function updateBoxSize(){
     const initial = 1000;
     let
     target = document.getElementById('unit'),
+    targets = document.getElementsByClassName('box'),
     prefix = parseFloat(target.dataset.unitprefix),
     fontSize = prefix / initial;
 
@@ -78,7 +79,6 @@ function updateUnitInt( symbol = '' ){
 
     let
     target = document.getElementById('unit'),
-    targets = document.getElementsByClassName('box'),
     prefix = parseFloat(target.dataset.unitprefix);
 
     if(this.symbol !== undefined){
