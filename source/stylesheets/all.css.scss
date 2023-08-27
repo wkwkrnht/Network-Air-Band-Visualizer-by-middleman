@@ -108,7 +108,19 @@ h1{
     &.cellular{
         background-color:var(--right-blue);
     }
+    &.DECT{
+        background-color:var(--right-blue);
+    }
     &.WiFi{
+        background-color:var(--blue);
+    }
+    &.BT{
+        background-color:var(--blue);
+    }
+    &.ISDBT{
+        background-color:var(--blue);
+    }
+    &.BS{
         background-color:var(--blue);
     }
     &.ETSI{
