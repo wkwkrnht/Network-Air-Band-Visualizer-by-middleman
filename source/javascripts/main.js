@@ -55,11 +55,12 @@ function updateUnitIndicator(){
 }
 
 function updateBoxSize(){
+    const initial = 1000; // This is defined by unit of elemnts from DBs.
     let
     target = document.getElementById('unit'),
     targets = document.getElementsByClassName('box'),
     prefix = parseFloat(target.dataset.unitprefix),
-    fontSize = (1 / prefix);
+    fontSize = (1 / (prefix / 1000));
 
     loading.style.display = 'block';
 
