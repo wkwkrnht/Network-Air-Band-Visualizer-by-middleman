@@ -52,7 +52,7 @@ async function updateUnitIndicator(){
     target.innerText = '[' + prefixStr + 'Hz]';
 }
 
-async function updateBoxUnit(){
+async function updateBoxSize(){
     const initial = 1000;
     let
     target = document.getElementById('unit'),
@@ -92,7 +92,7 @@ async function updateUnitInt( symbol = '' ){
     }
 
     target.dataset.unitprefix = prefix;
-    //updateBoxUnit();
+    //updateBoxSize();
     updateUnitIndicator();
 }
 
@@ -158,8 +158,7 @@ async function main(){ // Main function.
     e1 = document.getElementById('scaler-up'),
     e2 = document.getElementById('scaler-down'),
     e3 = document.getElementById('move-up'),
-    e4 = document.getElementById('move-down'),
-    e5 = document.getElementById('unit');
+    e4 = document.getElementById('move-down');
 
     e1.addEventListener('click', {symbol: '+', handleEvent: updateUnitInt});
     e1.addEventListener('touchstart', {symbol: '+', handleEvent: updateUnitInt});
@@ -169,7 +168,6 @@ async function main(){ // Main function.
     e3.addEventListener('touchstart', {symbol: '+', handleEvent: moveMainPart});
     e4.addEventListener('click', {symbol: '-', handleEvent: moveMainPart});
     e4.addEventListener('touchstart', {symbol: '-', handleEvent: moveMainPart});
-    e5.addEventListener('change', updateUnitIndicator());
 }
 
 window.addEventListener('resize', updateDisplayDirection()); //
