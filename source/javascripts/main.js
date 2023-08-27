@@ -5,6 +5,8 @@ displayDirection = '', // Variable for note which direction on the display is wi
 unitWidth = 1000,
 headerHeight = 0.13 * windowHeight;
 
+const loading = document.getElementById('loading');
+
 function updateDisplayDirection(){ // For set styles on elements, detect which direction on the display is wider.
     windowWidth = document.documentElement.clientWidth, // Constructor of the window width.
     windowHeight = document.documentElement.clientHeight; // Constructor of the window height.
@@ -59,9 +61,13 @@ async function updateBoxSize(){
     prefix = parseFloat(target.dataset.unitprefix),
     fontSize = prefix / initial;
 
+    loading.style.display = 'block';
+
     for( var i = 0; i < targets.length; i++ ){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
         targets[i].style.fontSize = fontSize + 'px';
     }
+
+    loading.style.display = 'none';
 }
 
 async function updateUnitInt( symbol = '' ){
@@ -126,6 +132,8 @@ function calcAmountOfMove(baseline, unit, times){ // Calculating the DOM will mo
 function adjustBoxLocation(){ // Set size and position for each air band boxes.
     let targets = document.getElementsByClassName('box'); // List of air band boxes
 
+    loading.style.display = 'block';
+
     for( var i = 0; i < targets.length; i++ ){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
         let
         d1D = targets[i].dataset.down,
@@ -146,6 +154,8 @@ function adjustBoxLocation(){ // Set size and position for each air band boxes.
 
         targets[i].style.top = calcAmountOfMove(windowHeight, 50, number) + 'px';
     }
+
+    loading.style.display = 'none';
 }
 
 async function main(){ // Main function.
