@@ -1,6 +1,3 @@
-#Bootstrap is used to style bits of the demo. Remove it from the config, gemfile and stylesheets to stop using bootstrap
-require "uglifier"
-
 # Activate and configure extensions
 # https://middlemanapp.com/advanced/configuration/#configuring-extensions
 
@@ -71,9 +68,6 @@ configure :build do
 
     # Minify css on build
     activate :minify_css
-
-    # Minify Javascript on build
-    activate :minify_javascript
 
     # Use Gzip
     activate :gzip
