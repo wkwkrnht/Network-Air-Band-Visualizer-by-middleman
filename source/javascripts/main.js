@@ -71,7 +71,7 @@ function updateBoxSize(){
     loading.style.display = 'none';
 }
 
-function updateUnitInt( symbol = '' ){
+function updateUnitInt(symbol){
     const
     amount = 1000,
     max = 1000000000,
@@ -102,7 +102,7 @@ function updateUnitInt( symbol = '' ){
     updateBoxSize();
 }
 
-function moveMainPart( symbol = '' ){
+function moveMainPart(symbol){
     let
     target = document.getElementById('unit'),
     unit = parseFloat(target.dataset.unitprefix);
