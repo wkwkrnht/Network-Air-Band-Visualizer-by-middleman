@@ -131,26 +131,23 @@ function calcAmountOfMove(baseline, unit, times){ // Calculating the DOM will mo
 
 function adjustBoxLocation(){ // Set size and position for each air band boxes.
     let
-    targets = document.getElementsByClassName('box'), // List of air band boxes
-    length = targets.length;
+    targets = document.getElementsByClassName('box'); // List of air band boxes
 
     loading.style.display = 'block';
 
-    for( var i = 0; i < length; i++ ){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
+    for( var i = 0; i < targets.length; i++ ){ // Set basic values of air bands style. If display is as landscape, height is fixed, width is valuable, position is set from left.
         let
         d1D = targets[i].dataset.down,
         d1U = targets[i].dataset.up,
         number = 0; // Value of counting of colision
 
         for( var j = 0; j < i; j++ ){ // Count Colision from sizes of the air band box and others.
-            if(i !== j){
-                let
-                d2D = targets[j].dataset.down, // DOM proparty of others.
-                d2U = targets[j].dataset.up; // DOM proparty of others.
+            let
+            d2D = targets[j].dataset.down, // DOM proparty of others.
+            d2U = targets[j].dataset.up; // DOM proparty of others.
 
-                if( ((d1D < d2D) && (d2D < d1U))  || ((d1D < d2U) && (d2U < d1U)) ){
-                    number++;
-                }
+            if( ((d1D < d2D) && (d2D < d1U))  || ((d1D < d2U) && (d2U < d1U)) ){
+                number++;
             }
         }
 
