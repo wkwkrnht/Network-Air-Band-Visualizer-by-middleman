@@ -26,14 +26,14 @@ page "/partials/*", layout: false
 # With alternative layout
 # page '/path/to/file.html', layout: 'other_layout'
 
-# Helpers
-# Methods defined in the helpers block are available in templates
-# https://middlemanapp.com/basics/helper-methods/
-
 # pretty urls
 activate :directory_indexes
 
 helpers do
+    # Helpers
+    # Methods defined in the helpers block are available in templates
+    # https://middlemanapp.com/basics/helper-methods/
+
     def update_max( target = 0, chaser = 0 )
         if chaser > target
             return chaser
@@ -64,15 +64,16 @@ helpers do
     end
 end
 
-# Build-specific configuration
-# https://middlemanapp.com/advanced/configuration/#environment-specific-settings
 
 configure :build do
+    # Build-specific configuration
+    # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
+
     # Minify css on build
     activate :minify_css
 
     # Minify Javascript on build
-    #activate :minify_javascript
+    activate :minify_javascript
 
     # Use Gzip
     activate :gzip

@@ -13,23 +13,23 @@
 }
 
 :root{
-    --black:#333;
-    --dark-gray:#eee;
-    --right-gray:#bbb;
-    --white:#fff;
-    --red:red;
-    --right-blue:#3ff9dc;
-    --blue:#03a9f4;
-    --yellow:#eae3b4;
+    $black:#333;
+    $dark-gray:#eee;
+    $right-gray:#bbb;
+    $white:#fff;
+    $red:red;
+    $right-blue:#3ff9dc;
+    $blue:#03a9f4;
+    $yellow:#eae3b4;
 
-    --base-vertical-rhythm:1vh;
-    --header-height:8vh;
-    --fixed-length:50px;
-    --box-font-size:14px;
-    --box-stroke-size:3px;
-    --ui-size:4vh;
-    --unit-indicator-size:6em;
-    --unit-indicator-position:2rem;
+    $base-vertical-rhythm:1vh;
+    $header-height:8vh;
+    $fixed-length:50px;
+    $box-font-size:14px;
+    $box-stroke-size:3px;
+    $ui-size:4vh;
+    $unit-indicator-size:6em;
+    $unit-indicator-position:2rem;
 
     font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN','Hiragino Sans',Meiryo,sans-serif;
     font-feature-settings:'pkna' 1;
@@ -47,11 +47,11 @@ header,
 }
 
 header{
-    background-color:var(--black);
-    color:var(--white);
-    height:var(--header-height);
+    background-color:$black;
+    color:$white;
+    height:$header-height;
     left:0;
-    margin-bottom:var(--base-vertical-rhythm);
+    margin-bottom:$base-vertical-rhythm;
     position:fixed;
     text-align:center;
     top:0;
@@ -78,7 +78,7 @@ h1{
 
 .box,
 .ruler{
-    height:var(--fixed-length);
+    height:$fixed-length;
     position:absolute;
 }
 
@@ -87,94 +87,86 @@ h1{
     font-size:1px;
 
     & > span{
-        color:var(--white);
-        font-size:var(--box-font-size);
+        color:$white;
+        font-size:$box-font-size;
         font-weight:bold;
         text-align:center;
         text-shadow:
-        var(--box-stroke-size) var(--box-stroke-size) var(--box-stroke-size) var(--black),
-        calc(-1 * var(--box-stroke-size)) calc(-1 * var(--box-stroke-size)) var(--box-stroke-size) var(--black),
-        calc(-1 * var(--box-stroke-size)) var(--box-stroke-size) var(--box-stroke-size) var(--black),
-        var(--box-stroke-size) calc(-1 * var(--box-stroke-size)) var(--box-stroke-size) var(--black),
-        var(--box-stroke-size) 0 var(--box-stroke-size) var(--black),
-        calc(-1 * var(--box-stroke-size))  0 var(--box-stroke-size) var(--black),
-        0 var(--box-stroke-size) var(--box-stroke-size) var(--black),
-        0 calc(-1 * var(--box-stroke-size)) var(--box-stroke-size) var(--black);
+        $box-stroke-size $box-stroke-size $box-stroke-size $black,
+        calc(-1 * $box-stroke-size) calc(-1 * $box-stroke-size) $box-stroke-size $black,
+        calc(-1 * $box-stroke-size) $box-stroke-size $box-stroke-size $black,
+        $box-stroke-size calc(-1 * $box-stroke-size) $box-stroke-size $black,
+        $box-stroke-size 0 $box-stroke-size $black,
+        calc(-1 * $box-stroke-size)  0 $box-stroke-size $black,
+        0 $box-stroke-size $box-stroke-size $black,
+        0 calc(-1 * $box-stroke-size) $box-stroke-size $black;
     }
 
     &.JP{
-        background-color:var(--red);
+        background-color:$red;
     }
-    &.cellular{
-        background-color:var(--right-blue);
-    }
+    &.cellular,
     &.DECT{
-        background-color:var(--right-blue);
+        background-color:$right-blue;
     }
-    &.WiFi{
-        background-color:var(--blue);
-    }
-    &.BT{
-        background-color:var(--blue);
-    }
-    &.ISDBT{
-        background-color:var(--blue);
-    }
+    &.WiFi,
+    &.BT,
+    &.ISDBT,
     &.BS{
-        background-color:var(--blue);
+        background-color:$blue;
     }
-    &.ETSI{
-        background-color:var(--black);
-    }
+    &.ETSI,
     &.ISM{
-        background-color:var(--black);
+        background-color:$black;
     }
 }
 
 .ruler{
     background-color:rgba(255, 255, 255, .2);
     text-align:left;
-    top:calc(var(--header-height) + var(--base-vertical-rhythm) + 1em);
+    top:calc($header-height + $base-vertical-rhythm + 1em);
     width:1000px;
 
     & > span{
-        font-size:var(--box-font-size);
+        font-size:$box-font-size;
         text-align:left;
     }
 }
 
 #unit,
+#loading,
 .ui{
     box-shadow:0 0 3vmin rgba(0,0,0,.1);
-    color:var(--black);
+    color:$black;
     font-weight:bold;
     position:fixed;
     text-align:center;
     z-index:100;
 }
 
-#unit{
+#unit,
+#loading{
     background-color:rgba(255, 255, 255, .4);
-    bottom:var(--unit-indicator-position);
-    left:var(--unit-indicator-position);
-    height:calc(var(--unit-indicator-size) / 2);
-    width:var(--unit-indicator-size);
+    bottom:$unit-indicator-position;
+    left:$unit-indicator-position;
+    height:calc($unit-indicator-size / 2);
+    width:$unit-indicator-size;
 }
 
 .ui{
     background-color:rgba(255, 255, 255, .4);
-    bottom:var(--unit-indicator-position);
+    bottom:$unit-indicator-position;
     display:grid;
-    font-size:calc(var(--ui-size) * 0.8);
+    font-size:calc($ui-size * 0.9);
     grid-template-areas:
         "scalerDown scalerUp"
         "moveDown moveUp";
-    height:calc(var(--ui-size) * 2);
-    right:var(--unit-indicator-position);
-    width:calc(var(--ui-size) * 2);
+    height:calc($ui-size * 2);
+    right:$unit-indicator-position;
+    width:calc($ui-size * 2);
 
     & > button{
-        border:1px solid var(--right-gray);
+        border:1px solid $right-gray;
     }
 }
 
@@ -196,13 +188,8 @@ h1{
 }
 
 #loading{
-    background-color:rgba(255, 255, 255, .4);
-    bottom:var(--unit-indicator-position);
     display:none;
-    left:var(--unit-indicator-position);
-    height:calc(var(--unit-indicator-size) / 2);
-    position:fixed;
-    width:var(--unit-indicator-size);
+    z-index:1000;
 }
 .pulse-container{
     align-items:center;
@@ -210,7 +197,7 @@ h1{
     justify-content:space-between;
 }
 .pulse-bubble{
-    background-color:var(--right-blue);
+    background-color:$right-blue;
     border-radius:50%;
     height:20px;
     width:20px;
@@ -235,6 +222,6 @@ h1{
     }
 
     .box,.ruler{
-        margin-top:calc(-2 * (var(--header-height) + var(--base-vertical-rhythm)));
+        margin-top:calc(-2.3 * (var($header-height) + var($base-vertical-rhythm)));
     }
 }
